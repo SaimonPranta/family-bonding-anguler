@@ -1,0 +1,139 @@
+<section class="admin-data-sec">
+  <div class="top-data-header">
+    <div class="title">
+      <h2>All Contacts</h2>
+    </div>
+
+    <form class="table-search" #searchForm=ngForm>
+      <input type="text"
+             #searchInput
+             name="searchTerm"
+             autocomplete="off"
+             ngModel placeholder="Search">
+      <button><i class="fa fa-search"></i></button>
+    </form>
+
+
+  </div> <!-- END TOP DATA HEADER -->
+
+  <div class="action-multiple">
+
+    <div class="date-filter">
+      <mat-form-field class="mat-date-input-field" appearance="outline" (click)="picker.open()">
+        <mat-label>FilterData Date Range</mat-label>
+        <mat-date-range-input [formGroup]="dataFormDateRange" [rangePicker]="picker" [max]="today">
+          <input matStartDate formControlName="start" placeholder="Start date" readonly>
+          <input matEndDate formControlName="end" placeholder="End date" readonly
+                 (dateChange)="endChangeRegDateRange($event)">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+        <mat-error *ngIf="dataFormDateRange.controls.start.hasError('matStartDateInvalid')">Invalid start date
+        </mat-error>
+        <mat-error *ngIf="dataFormDateRange.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <div class="sort">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="menuSort">
+        Sort By
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menuSort="matMenu">
+        <button mat-menu-item (click)="sortData({updatedAt: -1}, 1)" [class.dropdown-active]="activeSort === 1">
+          Last Update
+        </button>
+        <button (click)="sortData({name: 1}, 2)" mat-menu-item [class.dropdown-active]="activeSort === 2">
+          A-Z
+        </button>
+      </mat-menu>
+    </div>
+
+
+  </div>
+
+  <hr class="center-square">
+
+  <div class="table-wrapper space">
+
+    <div class="table-action" [class.dual]="activeSort || filter">
+      <div class="left" *ngIf="activeSort || filter">
+        <button mat-stroked-button color="accent" (click)="onRemoveAllQuery()">
+          <mat-icon>close</mat-icon>
+          Clear FilterData
+        </button>
+      </div>
+
+      <div class="right" *ngIf="selectedIds && selectedIds.length">
+<!--        <button *ngIf="checkEditPermission" mat-stroked-button color="primary" [matMenuTriggerFor]="menu">-->
+<!--          Change Visibility-->
+<!--          <mat-icon>arrow_drop_down</mat-icon>-->
+<!--        </button>-->
+<!--        <mat-menu #menu="matMenu">-->
+<!--          <button mat-menu-item (click)="openConfirmDialog('edit', {visibility: true})">Public</button>-->
+<!--          <button mat-menu-item (click)="openConfirmDialog('edit', {visibility: false})">Private</button>-->
+<!--        </mat-menu>-->
+
+        <button *ngIf="checkDeletePermission" mat-stroked-button color="warn" (click)="openConfirmDialog('delete')"
+                matTooltip="Delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div> <!-- END Table Action -->
+
+    <table>
+      <tr>
+        <th class="t-checkbox">
+          <mat-checkbox #matCheckbox (change)="onAllSelectChange($event)"></mat-checkbox>
+        </th>
+<!--        <th>Subject</th>-->
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone No</th>
+        <th>Message</th>
+        <th>Created At</th>
+<!--        <th>Actions</th>-->
+      </tr>
+      <tr
+        *ngFor="let data of contacts | paginate: { itemsPerPage: contactsPerPage, currentPage: currentPage, totalItems: totalContacts } ; let i = index">
+        <td class="t-checkbox">
+          <mat-checkbox class="t-mat-checkbox" [(ngModel)]="data.select"
+                        (ngModelChange)="onCheckChange($event, i, data._id)"></mat-checkbox>
+        </td>
+<!--        <td>{{data.subject}}</td>-->
+        <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.phoneNo}}</td>
+        <td>{{data.message}}</td>
+        <!--        <td>-->
+        <!--          <img checkImageDefault class="table-image" [src]="data.image" [alt]="data.image">-->
+        <!--        </td>-->
+<!--        <td>{{data.slug}}</td>-->
+        <td>{{data.createdAt | date}}</td>
+<!--        <td class="td-action">-->
+<!--          <button mat-mini-fab matTooltip="Sent Email">-->
+<!--            <mat-icon>email</mat-icon>-->
+<!--          </button>-->
+<!--        </td>-->
+      </tr>
+    </table>
+  </div>
+
+  <div class="pagination-container">
+    <pagination-controls
+      class="data-pagination"
+      [autoHide]="true"
+      [maxSize]="15"
+      (pageChange)="onPageChanged($event)">
+    </pagination-controls>
+  </div>     <!-- END PAGINATION -->
+
+
+  <!-- LOADING TEMPLATE -->
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.5)" size="medium" color="#fff" type="ball-atom" [fullScreen]="false">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>
+
+</section>

@@ -1,0 +1,128 @@
+.fm-to-do-list {
+    background-color: #2F2E2F;
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+
+.sid-nav {
+    background-color: #000000;
+    color: #fff;
+
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 10px;
+            margin: 5px 0px;
+
+            .mat-icon {
+                color: #5c5b5c;
+                margin-right: 5px;
+            }
+        }
+
+        a:hover {
+            background-color: #5c5b5cc9;
+
+            .mat-icon {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.to-do-body {
+    h4 {
+        color: rgb(175, 162, 162);
+        margin-top: 20px;
+        font-size: 1.1rem;
+        padding: 10px 0 10px 10px;
+
+        button {
+            padding: 3px;
+            border-radius: 5px;
+            border: 1px solid rgb(133, 117, 117);
+            cursor: pointer;
+        }
+    }
+
+    .priview-top {
+        h4 {
+            background-color: #fff;
+            color: #000;
+            margin-bottom: 0px;
+            border-bottom: 1px solid rgb(67, 64, 64);
+        }
+
+    }
+
+    .common-to-do-list {
+        div {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 0 10px 10px;
+
+            div {
+                display: flex;
+                align-items: center;
+            }
+
+            .commn-input,
+            select {
+                height: 28px;
+                width: 120px;
+                outline: none;
+                border-radius: 3px;
+                border: 1px solid rgb(176, 170, 170);
+            }
+
+            .calander-container {
+                position: relative !important;
+                display: flex;
+                height: 25px;
+                width: 205px;
+                padding: 0px !important;
+                border: 1px solid rgb(176, 170, 170);
+                border-radius: 3px;
+
+                .mat-date-range-input {
+                    width: 100%;
+                    display: inline-block;
+                }
+            }
+
+            select {
+                border-radius: 6px;
+            }
+
+            label {
+                color: #000;
+                font-weight: 600;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:200px) and (max-width:1330px) {
+    .common-to-do-list {
+        div {
+            display: block !important;
+
+            div {
+                display: flex !important;
+                padding: 10px 0px !important;
+            }
+        }
+    }
+}

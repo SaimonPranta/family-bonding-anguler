@@ -1,0 +1,72 @@
+@import "src/theme/variables";
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.list-item-active {
+  background: #CCE6FF;
+  .menu-icon {
+    color: $color-primary !important;
+  }
+}
+
+.menu-expand-icon {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+}
+
+.menu-item {
+  padding: 4px 0;
+  .mat-button {
+    padding: 3px 16px;
+    width: 100%;
+    font-weight: 400;
+    border-radius: 0;
+    font-size: 14px;
+    ::ng-deep {
+      span {
+        font-family: $font-en-primary;
+      }
+    }
+    .menu-icon {
+      margin-right: 16px;
+      color: #000000;
+    }
+
+    &.expanded {
+      .menu-expand-icon {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .mat-button-wrapper {
+    padding-left: 16px;
+  }
+}
+
+.sub-menu {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.25s ease-out;
+  -moz-transition: max-height 0.25s ease-out;
+  transition: max-height 0.25s ease-out;
+
+  .mat-button {
+    padding-left: 36px;
+  }
+
+  &.show {
+    max-height: 900px;
+    -webkit-transition: max-height 0.25s ease-in;
+    -moz-transition: max-height 0.25s ease-in;
+    transition: max-height 0.25s ease-in;
+  }
+}
+

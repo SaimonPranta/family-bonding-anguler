@@ -1,0 +1,510 @@
+<form #formElement="ngForm" [formGroup]="dataForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+  <div class="top-input">
+    <div class="title">
+      <h2>{{id ? 'Edit' : 'Add New'}} Product</h2>
+    </div>
+    <div class="action-btn">
+      <button mat-stroked-button color="warn" type="button">
+        Discard
+      </button>
+
+      <button mat-raised-button color="primary" type="submit">
+        {{id ? 'Update' : 'Save'}}{{dataForm.value.status ? ' (' + (dataForm.value.status | titlecase) + ')' : ''}}
+      </button>
+    </div>
+  </div> <!-- END Input Form Header -->
+
+  <div class="container-fluid">
+    <div class="main">
+      <mat-card class="content-main content-1">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput placeholder="Enter full name" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Description</mat-label>
+          <textarea formControlName="description" matInput placeholder="Enter image url" [rows]="6"></textarea>
+        </mat-form-field>
+
+      </mat-card> <!-- END CONTENT PART 1 -->
+
+      <mat-card class="content-main content-2">
+        <div class="title">
+          <h4>Media</h4>
+        </div>
+
+        <div class="image-container" [ngClass]="{'border-dashed': !chooseImage.length}">
+          <div class="picker" *ngIf="!chooseImage.length">
+            <div class="action">
+              <div class="icon">
+                <span class="material-icons">cloud_upload</span>
+              </div>
+              <button type="button" mat-stroked-button color="accent" (click)="openGalleryDialog()">
+                Pick Images
+              </button>
+              <p>Maximum 5 Image you can upload</p>
+            </div>
+          </div> <!-- END Picker Area -->
+
+          <div *ngIf="chooseImage && chooseImage.length" class="img-preview-container" cdkDropList
+               cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+            <div class="preview" *ngFor="let data of chooseImage" cdkDrag>
+              <img [src]="data" [alt]="data">
+              <div class="overlay-ac">
+                <button type="button" mat-icon-button color="warn" (click)="removeSelectImage(data)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+            <div class="add-more" *ngIf="chooseImage.length < 5">
+              <div class="icon">
+                <span class="material-icons">cloud_upload</span>
+              </div>
+              <button type="button" mat-stroked-button color="accent" (click)="openGalleryDialog()">
+                Pick Images
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </mat-card> <!-- END CONTENT PART 2 -->
+
+      <mat-card class="content-main content-3">
+        <div class="title">
+          <h4>Pricing</h4>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Unit Name</mat-label>
+          <input formControlName="unit" matInput placeholder="Ex. 1kg">
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <div class="input-area" fxLayout="row wrap">
+          <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="50" fxFlex.xs="100">
+            <mat-label>Cost Price</mat-label>
+            <input formControlName="costPrice" matInput placeholder="Enter cost price"
+                   type="number"
+                   pattern="^\d+(\.\d{1,2})?$"
+                   digitOnly
+                   [decimal]="true"
+                   required>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="50" fxFlex.xs="100">
+            <mat-label>Sale Price</mat-label>
+            <input formControlName="salePrice" matInput placeholder="Enter sale price"
+                   type="number"
+                   pattern="^\d+(\.\d{1,2})?$"
+                   digitOnly
+                   [decimal]="true"
+                   required>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+
+
+          <!--          <mat-form-field *ngIf="dataForm.value.hasTax" appearance="outline" class="w-100 px-1" fxFlex="50"-->
+          <!--                          fxFlex.xs="100">-->
+          <!--            <mat-label>Tax (%)</mat-label>-->
+          <!--            <input formControlName="tax" matInput placeholder="Enter tax in percent"-->
+          <!--                   type="number"-->
+          <!--                   pattern="^\d+(\.\d{1,2})?$"-->
+          <!--                   digitOnly-->
+          <!--                   [decimal]="true"-->
+          <!--                   [required]="dataForm.value.hasTax">-->
+          <!--            <mat-error>This field is required</mat-error>-->
+          <!--          </mat-form-field>-->
+        </div>
+
+        <!--        <div class="check-option">-->
+        <!--          <mat-checkbox formControlName="hasTax">Charge tax on this product</mat-checkbox>-->
+        <!--        </div>-->
+
+      </mat-card> <!-- END CONTENT PART 3 -->
+
+      <mat-card class="content-main content-4">
+        <div class="title">
+          <h4>Others</h4>
+        </div>
+
+        <div class="input-area" fxLayout="row wrap">
+          <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="50" fxFlex.xs="100">
+            <mat-label>SKU</mat-label>
+            <input formControlName="sku" matInput placeholder="Enter full name" required>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="50" fxFlex.xs="100">
+            <mat-label>EMI Month</mat-label>
+            <mat-select formControlName="emiMonth" multiple>
+              <mat-option *ngFor="let data of emiMonths" [value]="data.value">
+                {{data.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error>This field is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="50" fxFlex.xs="100">
+            <mat-label>Discount Type</mat-label>
+            <mat-select formControlName="discountType">
+              <mat-option>
+              none
+            </mat-option>
+              <mat-option *ngFor="let data of discountTypes" [value]="data.value">
+                {{data.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error>This field is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="50" fxFlex.xs="100">
+            <mat-label>Discount Amount</mat-label>
+            <input formControlName="discountAmount" matInput placeholder="Enter discount amount"
+                   type="number"
+                   pattern="^\d+(\.\d{1,2})?$"
+                   digitOnly
+                   [decimal]="true"
+                   [required]="dataForm.value.discountType">
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field
+            *ngIf="dataForm.value.trackQuantity" appearance="outline" class="w-100 px-1" fxFlex="50"
+            fxFlex.xs="100">
+            <mat-label>Quantity</mat-label>
+            <input formControlName="quantity" matInput placeholder="Enter full name"
+                   digitOnly
+                   [allowNegatives]="true">
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="check-option">
+          <mat-checkbox formControlName="trackQuantity">Track quantity</mat-checkbox>
+        </div>
+
+      </mat-card> <!-- END CONTENT PART 4 -->
+
+      <mat-card class="specifications">
+        <div class="form-array-container">
+
+          <div formArrayName="specifications" class="form-array-input">
+            <div class="single-field"
+                 *ngFor="let data of specificationDataArray?.controls; let i = index"
+                 [formGroupName]="i">
+
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input formControlName="name"
+                       type="text"
+                       matInput [placeholder]="'Enter Name'">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Value</mat-label>
+                <input formControlName="value"
+                       type="text"
+                       matInput [placeholder]="'Enter Value'">
+              </mat-form-field>
+
+              <button class="btn-form-field-remove" type="button" mat-mini-fab color="warn"
+                      (click)="removeFormArrayField('specifications', i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="add-form-array-action">
+            <button type="button" mat-raised-button color="primary"
+                    (click)="onAddNewSpecifications()">
+              <mat-icon>add</mat-icon>
+              Create New Specification
+            </button>
+          </div>
+
+        </div> <!-- END VARIATIONS FORM ARRAY -->
+
+      </mat-card>
+
+
+      <mat-card class="content-main content-5">
+        <div class="title">
+          <h4>SEO</h4>
+        </div>
+
+        <div class="input-area" fxLayout="row wrap">
+          <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100">
+            <mat-label>Title</mat-label>
+            <input formControlName="seoTitle" matInput placeholder="Enter seo title">
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100">
+            <mat-label>Keywords</mat-label>
+            <input formControlName="seoKeywords" matInput placeholder="Enter seo keywords with comma">
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="seoDescription" matInput placeholder="Enter seo description"
+                      [rows]="6"></textarea>
+          </mat-form-field>
+
+        </div>
+
+      </mat-card> <!-- END CONTENT PART 3 -->
+
+    </div> <!-- END! MAIN AREA -->
+
+    <div class="sidebar">
+      <mat-card class="content-sidebar content-sidebar-0">
+        <div class="title">
+          <h4>Status</h4>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Select Status</mat-label>
+          <mat-select formControlName="status" required>
+            <mat-option *ngFor="let data of productStatus" [value]="data.value">
+              {{data.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+
+      </mat-card> <!-- END CONTENT SIDEBAR 2 -->
+
+      <mat-card class="content-sidebar content-sidebar-1">
+        <div class="title">
+          <h4>Catalog</h4>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Select Category</mat-label>
+          <mat-select formControlName="category" required (selectionChange)="onCategorySelect($event)">
+            <mat-option *ngFor="let data of categories" [value]="data._id">
+              {{data.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Select Sub Category</mat-label>
+          <mat-select formControlName="subCategory">
+            <mat-option *ngFor="let data of subCategories" [value]="data._id">
+              {{data.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Select Brand</mat-label>
+          <mat-select formControlName="brand" required>
+            <mat-option *ngFor="let data of brands" [value]="data._id">
+              {{data.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+
+      </mat-card> <!-- END CONTENT SIDEBAR 1 -->
+
+      <mat-card class="content-sidebar content-sidebar-2">
+        <div class="title">
+          <h4>Tag</h4>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Select Tags</mat-label>
+          <mat-select formControlName="tags" multiple>
+            <mat-option *ngFor="let data of tags" [value]="data._id">
+              {{data.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+
+      </mat-card> <!-- END CONTENT SIDEBAR 2 -->
+
+      <mat-card class="content-sidebar content-sidebar-2">
+        <div class="title">
+          <h4>Video Url</h4>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-100 px-1">
+          <mat-label>YouTube Video Url</mat-label>
+          <input formControlName="videoUrl" matInput placeholder="Enter video url">
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+      </mat-card> <!-- END CONTENT SIDEBAR 2 -->
+
+<!--      <mat-card class="content-sidebar content-sidebar-3">-->
+<!--        <div class="title">-->
+<!--          <h4>Earn Points</h4>-->
+<!--        </div>-->
+
+<!--        <mat-form-field appearance="outline" class="w-100" *ngIf="dataForm.value.earnPoint">-->
+<!--          <mat-label>Point Value</mat-label>-->
+<!--          <input formControlName="pointValue" matInput placeholder="Enter point value"-->
+<!--                 type="number"-->
+<!--                 pattern="^\d+(\.\d{1,2})?$"-->
+<!--                 digitOnly-->
+<!--                 [decimal]="true">-->
+<!--          <mat-error>This field is required</mat-error>-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="outline" class="w-100" *ngIf="dataForm.value.earnPoint">-->
+<!--          <mat-label>Point Type</mat-label>-->
+<!--          <mat-select formControlName="pointType">-->
+<!--            <mat-option *ngFor="let data of amountTypes" [value]="data.value">-->
+<!--              {{data.viewValue}}-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--          <mat-error>This field is required.</mat-error>-->
+<!--        </mat-form-field>-->
+
+<!--        <div class="check-option">-->
+<!--          <mat-checkbox formControlName="earnPoint">Enable earn Point</mat-checkbox>-->
+<!--        </div>-->
+
+<!--      </mat-card> &lt;!&ndash; END CONTENT SIDEBAR 2 &ndash;&gt;-->
+
+<!--      <mat-card class="content-sidebar content-sidebar-4">-->
+<!--        <div class="title">-->
+<!--          <h4>Redeem Rules</h4>-->
+<!--        </div>-->
+
+<!--        <mat-form-field appearance="outline" class="w-100" *ngIf="dataForm.value.redeemPoint">-->
+<!--          <mat-label>Redeem Value</mat-label>-->
+<!--          <input formControlName="redeemValue" matInput placeholder="Enter redeem value"-->
+<!--                 type="number"-->
+<!--                 pattern="^\d+(\.\d{1,2})?$"-->
+<!--                 digitOnly-->
+<!--                 [decimal]="true">-->
+<!--          <mat-error>This field is required</mat-error>-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="outline" class="w-100" *ngIf="dataForm.value.redeemPoint">-->
+<!--          <mat-label>Redeem Type</mat-label>-->
+<!--          <mat-select formControlName="redeemType">-->
+<!--            <mat-option *ngFor="let data of amountTypes" [value]="data.value">-->
+<!--              {{data.viewValue}}-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--          <mat-error>This field is required.</mat-error>-->
+<!--        </mat-form-field>-->
+
+<!--        <div class="check-option">-->
+<!--          <mat-checkbox formControlName="redeemPoint">Enable redeem Point</mat-checkbox>-->
+<!--        </div>-->
+
+<!--      </mat-card> &lt;!&ndash; END CONTENT SIDEBAR 2 &ndash;&gt;-->
+
+
+    </div>  <!-- END! SIDE AREA -->
+  </div>
+
+
+  <!--  <div class="variations">-->
+  <!--    <mat-card>-->
+  <!--      <div class="check-option">-->
+  <!--        <mat-checkbox formControlName="hasVariations" (change)="onCheckEnableVariations($event)">Enable Variations</mat-checkbox>-->
+  <!--      </div>-->
+
+  <!--      <div class="select-single">-->
+  <!--        <mat-form-field appearance="outline" class="w-100" *ngIf="dataForm.value.hasVariations">-->
+  <!--          <mat-label>Select Variations</mat-label>-->
+  <!--          <mat-select formControlName="variations"-->
+  <!--                      [required]="dataForm.value.hasVariations" multiple>-->
+  <!--            <mat-option *ngFor="let data of variations" [value]="data._id">-->
+  <!--              {{data.name}}-->
+  <!--            </mat-option>-->
+  <!--          </mat-select>-->
+  <!--          <mat-error>This field is required.</mat-error>-->
+  <!--        </mat-form-field>-->
+  <!--      </div>-->
+
+  <!--      <div class="form-array-container">-->
+  <!--        <div class="add-form-array-action">-->
+  <!--          <button *ngIf="dataForm.value.variations" type="button" mat-raised-button color="primary"-->
+  <!--                  (click)="onAddNewVariationObject('variationsOptions')">-->
+  <!--            <mat-icon>add</mat-icon>-->
+  <!--            Create Variations Options-->
+  <!--          </button>-->
+
+  <!--        </div>-->
+  <!--        <div formArrayName="variationsOptions" class="form-array-input">-->
+  <!--          <div class="single-field"-->
+  <!--               *ngFor="let data of variationsDataArray?.controls; let i = index"-->
+  <!--               [formGroupName]="i">-->
+
+  <!--            <mat-form-field-->
+  <!--              appearance="outline"-->
+  <!--              *ngFor="let t of dataForm.value.variationsOptions[i].variations">-->
+  <!--              <mat-label>{{t.name}}</mat-label>-->
+  <!--              <input matInput [value]="t.value" readonly>-->
+  <!--            </mat-form-field>-->
+
+  <!--            <mat-form-field appearance="outline">-->
+  <!--              <mat-label>Price</mat-label>-->
+  <!--              <input formControlName="price"-->
+  <!--                     type="number"-->
+  <!--                     pattern="^\d+(\.\d{1,2})?$"-->
+  <!--                     digitOnly-->
+  <!--                     [decimal]="true"-->
+  <!--                     matInput [placeholder]="'Enter price'">-->
+  <!--            </mat-form-field>-->
+
+  <!--            <mat-form-field appearance="outline">-->
+  <!--              <mat-label>Quantity</mat-label>-->
+  <!--              <input formControlName="quantity"-->
+  <!--                     matInput-->
+  <!--                     type="number"-->
+  <!--                     digitOnly-->
+  <!--                     [allowNegatives]="true"-->
+  <!--                     [placeholder]="'Enter quantity'">-->
+  <!--            </mat-form-field>-->
+
+  <!--            <div class="variation-img">-->
+  <!--              <button *ngIf="dataForm.value.variationsOptions[i].image"-->
+  <!--                      (click)="removeVariationImage(i)"-->
+  <!--                      mat-icon-button color="warn" type="button" class="btn-img-remove">-->
+  <!--                <mat-icon>delete</mat-icon>-->
+  <!--              </button>-->
+  <!--              <img-->
+  <!--                (click)="openVariationGalleryDialog(i)"-->
+  <!--                [src]="dataForm.value.variationsOptions[i].image ? dataForm.value.variationsOptions[i].image : variationImagePlaceholder"-->
+  <!--                alt="">-->
+  <!--            </div>-->
+
+
+  <!--            <button class="btn-form-field-remove" type="button" mat-mini-fab color="warn" (click)="removeFormArrayField('variationsOptions', i)">-->
+  <!--              <mat-icon>delete</mat-icon>-->
+  <!--            </button>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div> &lt;!&ndash; END VARIATIONS FORM ARRAY &ndash;&gt;-->
+
+  <!--    </mat-card>-->
+  <!--  </div>-->
+
+</form>
+
+
+<!-- LOADING TEMPLATE -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.5)" size="medium" color="#fff" type="ball-atom" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
+

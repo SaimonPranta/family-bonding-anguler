@@ -1,0 +1,7 @@
+
+<div class="bottom-sheet">
+  <div> <p>{{message}}</p> </div>
+  <button *ngIf="routerLink && btnName" mat-button class="btn-action" (click)="changeStatus()">
+    {{btnName}}
+  </button>
+</div>

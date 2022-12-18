@@ -1,0 +1,26 @@
+@import "src/theme/variables";
+
+
+.bottom-sheet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  //background-color: #BB3F30;
+  padding: 10px 20px;
+
+  p {
+    font-family: $font-en-primary;
+    color: white;
+  }
+}
+.bottom-sheet div {
+  flex: 1;
+}
+button {
+  margin-left: 5px;
+  color: black !important;
+}
+button.change {
+  color: white !important;
+}

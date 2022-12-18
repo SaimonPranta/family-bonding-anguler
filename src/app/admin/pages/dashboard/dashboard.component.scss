@@ -1,0 +1,217 @@
+@import "src/theme/variables";
+@import "src/theme/exports/table-scroll";
+@import "src/theme/exports/ng-class";
+
+$cardExtraColor1: #8267ff;
+
+.main {
+  background-color: #f3f2f2;
+  margin-top: -16px;
+  padding-top: 16px;
+}
+
+.table-wrapper table{
+  background-color: #fff;
+}
+.table-wrapper .table-image{
+  width: 85px;
+  height: 75px;
+}
+.container {
+  //font-family: $font-en-lato;
+  margin: 15px 0 20px 0;
+}
+
+
+.main-overview {
+  padding: 0 15px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+
+  .d-card {
+    min-height: 160px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+
+    .d-data {
+      margin-left: 50px;
+
+      .base-icon {
+        font-size: 44px;
+      }
+
+      .icon-view {
+        margin-bottom: 10px;
+        width: 56px;
+        height: auto;
+      }
+
+      .title {
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .value {
+        font-size: 36px;
+        font-weight: bold;
+      }
+    }
+
+    .bg-circle {
+      position: absolute;
+      right: -36px;
+      top: 25px;
+
+      img {
+        width: 145px;
+      }
+    }
+  }
+
+}
+
+.other-view {
+  margin: 16px 0 20px 0;
+  padding: 0 15px;
+  width: 100%;
+  grid-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  .card-extra {
+    width: 100%;
+    padding: 15px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+
+    .card-details {
+      h4 {
+        font-size: 15px;
+        font-weight: 600;
+        opacity: 0.8;
+        //color: #5b5b5b;
+      }
+
+      span {
+        font-size: 20px;
+        padding: 4px 0;
+        font-weight: 500;
+      }
+    }
+
+    .card-icon {
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+
+}
+
+.border-bg-1 {
+  background-color: #fff;
+
+  .card-icon {
+    color: $cardExtraColor1;
+  }
+
+  .card-details {
+    h4 {
+      color: $cardExtraColor1;
+    }
+
+    span {
+      color: $cardExtraColor1;
+    }
+  }
+}
+
+
+.card-one {
+  background: rgb(34, 108, 227);
+  background: linear-gradient(90deg, rgba(34, 108, 227, 1) 0%, rgba(18, 73, 138, 1) 100%);
+}
+
+.card-two {
+  background: #7F00FF;
+  background: -webkit-linear-gradient(to bottom, #E100FF, #7F00FF);
+  background: linear-gradient(to bottom, #E100FF, #7F00FF);
+
+}
+
+.card-three {
+  background: #bc4e9c;
+  background: -webkit-linear-gradient(to bottom, #f80759, #bc4e9c);
+  background: linear-gradient(to bottom, #f80759, #bc4e9c);
+
+}
+
+.card-four {
+  background: #2b5876; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4e4376, #2b5876); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+// ## Custom BreakPoints
+@media only screen and (max-device-width: $max-tablet-width) {
+  .main-overview {
+    padding: 0 10px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (min-device-width: 1080px) and (max-device-width: 1440px) {
+}
+
+// .section-1
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .top-icon {
+    height: 18px;
+    width: 18px;
+    border-radius: 100%;
+    color: $cardExtraColor1;
+    border: 2px solid $cardExtraColor1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 10px;
+      font-weight: bolder;
+      margin: 0px;
+    }
+  }
+}
+
+.section-2 {
+  display: grid;
+  grid-template-columns: 62% 37%;
+  gap: 10px;
+  padding: 0 15px;
+
+}
+
+.app_line {
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.app_dount {
+  background-color: #fff;
+  border-radius: 5px;
+}

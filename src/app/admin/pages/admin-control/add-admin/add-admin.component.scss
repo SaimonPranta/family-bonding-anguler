@@ -1,0 +1,18 @@
+@import "src/theme/exports/top-input-header";
+
+form {
+  width: 95%;
+  max-width: 850px;
+  margin: 16px auto;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  button {
+    padding: 4px 24px;
+    border-radius: 25px;
+  }
+}
+
+

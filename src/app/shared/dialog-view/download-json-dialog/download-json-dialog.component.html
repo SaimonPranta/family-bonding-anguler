@@ -1,0 +1,39 @@
+<!--<h2 mat-dialog-title>Download personal </h2>-->
+
+<!--<hr>-->
+
+<!--<div class="app-dialog-actions">-->
+<!--  <a [href]="sanitizedBlobUrl" [download]="filename" type="button" class="btn btn-primary btn-sm mr-2" (click)="download()"><i class="fas fa-download"></i> Download-->
+<!--  </a>-->
+<!--  <button mat-raised-button color="primary" type="button" (click)="viewInBrowser()"><i class="fas fa-eye"></i> View in browser-->
+<!--  </button>-->
+<!--  <button mat-raised-button color="primary" type="button" (click)="close()">Close <i class="fas fa-window-close"></i></button>-->
+<!--</div>-->
+
+<!--<button mat-raised-button color="primary">Download</button>-->
+
+
+<div class="dialog-container">
+  <div class="header">
+    <h2>Download Data as Json File</h2>
+  </div>
+  <div class="dialog-body">
+    <div class="circle">
+      <mat-icon >file_download</mat-icon>
+    </div>
+  </div>
+  <div class="dialog-action">
+    <button mat-raised-button color="warn" (click)="close()">
+      <mat-icon>close</mat-icon>
+      Cancel
+    </button>
+    <a mat-raised-button color="primary" [href]="sanitizedBlobUrl" [download]="filename" type="button" (click)="download()">
+      <mat-icon>download</mat-icon>
+      Download
+    </a>
+    <button mat-raised-button color="accent" (click)="viewInBrowser()">
+      <mat-icon>visibility</mat-icon>
+      View
+    </button>
+  </div>
+</div>

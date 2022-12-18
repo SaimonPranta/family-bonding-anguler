@@ -1,0 +1,105 @@
+@import "src/theme/variables";
+
+// ## Top Toolbar
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  height: $toolbar-height;
+  background: $color-primary;
+
+  .toggleBtn {
+    button {
+      mat-icon {
+        color: $icon-default-color;
+      }
+    }
+  }
+
+}
+
+// ## Brand
+.brand {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 124px;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+#profile-thumb {
+  width: 36px;
+  height: 36px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+
+.toolbar-action {
+  width: 265px;
+  .action-container {
+    button {
+      mat-icon {
+        color: $icon-default-color;
+      }
+    }
+  }
+}
+
+.toolbar-date {
+
+  flex: 1;
+  .date-container {
+    text-align: center;
+    h4 {
+      color: #fcd94e;
+      font-size: 15px;
+      // font-family: $font-en-lato;
+      font-weight: bold;
+    }
+  }
+}
+
+
+/*Custom BreakPoint*/
+@media only screen and (max-device-width: $max-tablet-width) {
+  .toolbar-date {
+    display: none;
+  }
+
+  .brand {
+    img {
+      width: auto;
+      height: 56px;
+    }
+  }
+}
+
+@media only screen and (max-device-width: 599px) {
+  mat-toolbar {
+    height: 65px;
+
+    .brand-logo {
+      width: 70px;
+      margin-left: 10px;
+    }
+  }
+
+  .brand {
+    margin-left: 8px;
+    img {
+      width: auto;
+      height: 45px;
+    }
+  }
+
+}

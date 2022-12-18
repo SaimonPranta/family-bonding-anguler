@@ -1,0 +1,297 @@
+<div class="fm-to-do-list">
+    <div class="sid-nav">
+        <ul>
+            <li>
+                <!-- <a><mat-icon>archive</mat-icon>Inbox</a> -->
+                <a><mat-icon>move_to_inbox</mat-icon> Inbox</a>
+            </li>
+            <li>
+                <a><mat-icon>all_inbox</mat-icon> All</a>
+            </li>
+            <li>
+                <a><mat-icon>calendar_today</mat-icon> Today</a>
+            </li>
+            <li>
+                <a><mat-icon>wb_twilight</mat-icon> Tomorrow</a>
+            </li>
+            <li>
+                <a><mat-icon>calendar_month</mat-icon> Next 7 Days</a>
+            </li>
+            <li>
+                <a><mat-icon>diversity_1</mat-icon> Family Bonding</a>
+            </li>
+            <li>
+                <a><mat-icon>folder_open</mat-icon> Daily Task</a>
+            </li>
+            <li>
+                <a><mat-icon>add</mat-icon> Add List</a>
+            </li>
+        </ul>
+    </div>
+    <div class="to-do-body">
+        <div class="today">
+            <div>
+                <h4>TODAY</h4>
+            </div>
+            <div class="common-to-do-list">
+                <div>
+                    <input type="text" value="Subject/work" class="commn-input">
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker1"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker1"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker1></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker2"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker2"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker2></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Remind By:</label>
+                        <select name="noting" id="">
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" value="Subject/work" class="commn-input">
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker3"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker3"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker3></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker4"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker4"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker4></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Remind By:</label>
+                        <select name="noting" id="">
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" value="Subject/work" class="commn-input">
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker5"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker5"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker5></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker6"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker6"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker6></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Remind By:</label>
+                        <select name="noting" id="">
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="priview">
+            <div class="priview-top">
+                <h4>Priview To-Do-List Data <button>Delete</button></h4>
+            </div>
+            <div class="common-to-do-list">
+                <div>
+                    <input type="text" value="Subject/work" class="commn-input">
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker7"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker7"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker7></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker8"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker8"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker8></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Remind By:</label>
+                        <select name="noting" id="">
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="common-to-do-list">
+                <div>
+                    <input type="text" value="Subject/work" class="commn-input">
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker9"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker9"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker9></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker10"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker10"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker10></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Remind By:</label>
+                        <select name="noting" id="">
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="common-to-do-list">
+                <div>
+                    <input type="text" value="Subject/work" class="commn-input">
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker11"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker11"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker11></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>To-Do-1st Remider(date and time):</label>
+                        <div class="calander-container">
+                            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker12"></mat-datepicker-toggle>
+                            <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker12"
+                                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                                <input matStartDate placeholder="Start date" formControlName="start">
+                                <input matEndDate placeholder="End date" formControlName="end">
+                            </mat-date-range-input>
+                            <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                            <mat-date-range-picker #campaignOnePicker12></mat-date-range-picker>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Remind By:</label>
+                        <select name="noting" id="">
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                            <option value="">SMS Notification</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

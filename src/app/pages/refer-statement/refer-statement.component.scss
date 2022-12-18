@@ -1,0 +1,54 @@
+.famuly-member-request-panel{
+    padding: 50px 0 50px 0;
+}
+.container{
+    display: block;
+    max-width: 1350px;
+    width: 100%;
+    margin: 0 auto;
+}
+.table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    table-layout: fixed;
+    text-align: center;
+    /* font-family: Arial; */
+    max-width: 1200px;
+     font-weight: 600;
+
+}
+.Refer-statement{
+
+  color: #921e1a;
+  font-size: 60px !important;
+  font-weight: 900;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.688);
+  h2{
+    margin: 50px 0 !important;
+  }
+}
+
+
+td, th{
+border: 1px solid black;
+width: 5%;
+padding: 10px 0;
+}
+
+.Family-member-btn{
+    background: none;
+    border: none;
+    font-style: bold;
+}
+.Family-member-btn-td{
+    background-color: rgb(95, 189, 95);
+    border: 2px solid black;
+}
+tr > .bonus{
+    border: 2px solid green;
+}
+
+

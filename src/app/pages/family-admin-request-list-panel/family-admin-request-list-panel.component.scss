@@ -1,0 +1,62 @@
+.famuly-admin-request-panel{
+    padding: 50px 0 50px 0;
+}
+.container{
+    display: block;
+    max-width: 1350px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    table-layout: fixed;
+    text-align: center;
+    font-family: Arial;
+    max-width: 1200px;
+
+}
+td, th{
+border: 1px solid grey;
+/* cell padding */
+padding: 10px 0;
+width: 5%;
+}
+
+tr{
+    text-align: center;
+}
+.Gen{
+    color: rgb(161, 159, 159);
+}
+
+.pen{
+
+    border: none;
+    background: none;
+    color: white;
+}
+.tds{
+    background-color: red;
+    border-bottom: 1px solid black;
+    color: white;
+
+}
+
+.view{
+    background-color: rgb(190, 188, 188);
+}
+.Apr{
+    background: none;
+    border: none;
+    color: white;
+}
+.tdss{
+    background-color: rgb(7, 175, 7);
+    border-bottom: 1px solid black;
+   color: white;
+}
+

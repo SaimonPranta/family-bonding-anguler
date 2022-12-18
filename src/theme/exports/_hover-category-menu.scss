@@ -1,0 +1,143 @@
+@import "src/theme/variables";
+
+
+.hover-menu li {
+  min-width: 260px;
+  z-index: 50;
+
+  mat-icon {
+    color: #FFFFFF;
+  }
+
+  .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      color: #FFFFFF;
+    }
+
+    mat-icon, i {
+      font-size: 20px;
+    }
+  }
+}
+
+.hover-menu .main-menu{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  // white-space: nowrap;
+  position: relative;
+}
+
+.main-menu > li {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #ffffff54;
+  cursor: pointer;
+}
+
+.hover-menu a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  font-family: $font-en-primary;
+}
+
+.main-menu > li:hover {
+  background: #E11010;
+}
+
+// .hover-menu .sub-menu, .hover-menu .super-sub-menu {
+//   position: absolute;
+//   display: none;
+//   background: $color-primary;
+// }
+
+
+// .hover-menu .main-menu li {
+
+// }
+
+
+// .hover-menu .sub-menu {
+//   top: 0;
+//   right: 0;
+//   transform: translate(100%, 0);
+// }
+
+// .hover-menu .sub-menu li {
+//   position: relative;
+// }
+
+.hover-menu .super-sub-menu {
+  top: 0;
+  right: 0;
+  transform: translate(100%, 0);
+}
+
+/*** sub-menu ****/
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.sub-mega-menu{
+  display: none;
+  transition: all 0.3s linear;
+  background-color: #fff;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 2px 11px 3px rgb(0 0 0 / 10%);
+  -moz-box-shadow: 0 2px 11px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 2px 11px 3px rgb(0 0 0 / 10%);
+  width: 700px;
+  min-height:500px;
+  max-height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  position:absolute;
+  top: 0;
+  left: 100%;
+}
+
+.sub-mega-menu::-webkit-scrollbar{
+  display: block;
+  width: 10px;
+  background-color: #fff;
+}
+.sub-mega-menu::-webkit-scrollbar-track{
+  display: block;
+  background-color: #fff;
+}
+.sub-mega-menu::-webkit-scrollbar-thumb{
+  background-color: gray;
+  border-radius: 20px;
+  height: 30px;
+}
+.hover-menu .main-menu > li:hover .sub-mega-menu{
+  display: block;
+}
+
+@media(max-width:1000px){
+  .sub-mega-menu{
+    width: 600px;
+  }
+}
+
+@media(min-width:960px) and (max-width:1300px){
+  .main-menu > li{
+    height: 45px;
+    padding:0 17px;
+  }
+  .sub-mega-menu{
+    min-height: 400px;
+  }
+}

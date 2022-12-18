@@ -1,0 +1,680 @@
+<section class="login">
+    <div class="container">
+      <div class="log-in-form">
+        <div class="border-box">
+          <h1>Family Member Basic Data</h1>
+          <h3>Full Name According to NID/Birth Registration Certificate/Documents</h3>
+          <div class="dashboard">
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <mat-label>Account/ID Type</mat-label>
+                  <mat-select>
+                    <mat-option value="one">For Me</mat-option>
+                    <mat-option value="two">Proxy for (-12) Child</mat-option>
+                    <mat-option value="two">Proxy for Disable</mat-option>
+                    <mat-option value="three">Proxy for Died Person</mat-option>
+                    <mat-option value="four">Proxy for Male Spouse</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <div class="input-field">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Name</mat-label>
+                      <input
+                        matInput
+                        placeholder="My Name"
+                        [formControl]="name"
+                        required
+                      />
+                      <mat-error *ngIf="email.invalid">{{
+                        getErrorMessage()
+                      }}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="btn">
+                    <button class="nid">NID/BRC</button>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="input-field">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Photo</mat-label>
+                      <input
+                        matInput
+                        placeholder="Photo"
+                        [formControl]="name"
+                        required
+                      />
+                      <mat-error *ngIf="email.invalid">{{
+                        getErrorMessage()
+                      }}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="btn">
+                    <button class="upload">Upload</button>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="input-field">
+                    <mat-form-field appearance="outline">
+                      <input
+                        matInput
+                        placeholder="KYC Face Record For Face Recognition"
+                        [formControl]="name"
+                      />
+                    </mat-form-field>
+                </div>
+                <div class="input-field" >
+                    <mat-form-field appearance="outline" >
+                      <input
+                        matInput  class="input"
+                        placeholder="Animated Model View"
+                        [formControl]="name"
+                      />
+                    </mat-form-field>
+                </div>
+                <div class="btn">
+                    <button class="cam">Cam On</button>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="input-field">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Payment Through</mat-label>
+                      <mat-select>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                <div class="input-field" >
+                    <mat-form-field appearance="outline" >
+                      <input
+                        matInput  class="input"
+                        placeholder="Payment Prove Code"
+                        [formControl]="name"
+                      />
+                    </mat-form-field>
+                </div>
+                <div class="btn">
+                    <button class="upload">Upload</button>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="input-field">
+                    <mat-form-field appearance="outline">
+                      <input
+                        matInput
+                        placeholder="Spouse Name :"
+                        [formControl]="name"
+                      />
+                    </mat-form-field>
+                </div>
+                <div class="input-field" >
+                    <mat-form-field appearance="outline" >
+                      <input
+                        matInput  class="input"
+                        placeholder="Divorce"
+                        [formControl]="name"
+                      />
+                    </mat-form-field>
+                </div>
+                <div class="btn">
+                    <button class="upload">ADD</button>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="input-field">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Spouses</mat-label>
+                      <mat-select>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                <div class="input-field" >
+                    <mat-form-field appearance="outline" >
+                      <input
+                        matInput  class="input"
+                        placeholder="Children Name"
+                        [formControl]="name"
+                      />
+                    </mat-form-field>
+                </div>
+                <div class="btn">
+                    <button class="add2">ADD</button>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="input-field">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Spouses</mat-label>
+                      <mat-select>
+                        <mat-option value="one">Spouses's Family Admin ID</mat-option>
+                        <mat-option value="one">Spouses's Grand Father ID</mat-option>
+                        <mat-option value="one">Spouses's Family Member ID</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                <div class="input-field" >
+                    <mat-form-field appearance="outline" >
+                      <input
+                        matInput
+                        [formControl]="name"
+                      />
+                    </mat-form-field>
+                </div>
+                <div class="btn">
+                    <button class="add">ADD</button>
+                </div>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    placeholder="Member Generation Number"
+                    [formControl]="phone"
+                    required
+                  />
+                  <mat-error *ngIf="phone.invalid">{{
+                    getErrorMessage()
+                  }}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field color="accent" appearance="outline">
+                    <mat-label>Date of birth</mat-label>
+                    <input matInput [matDatepicker]="picker1">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field color="accent" appearance="outline">
+                    <mat-label>Date of Death (Filled Up by F. Admin)</mat-label>
+                    <input matInput [matDatepicker]="picker1">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <mat-label>Gender</mat-label>
+                  <mat-select>
+                    <mat-option value="one">Male</mat-option>
+                    <mat-option value="two">Female</mat-option>
+                    <mat-option value="two">Others</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    placeholder="Whatsapp Mobile Number With Code"
+                    [formControl]="phone"
+                    required
+                  />
+                  <mat-error *ngIf="phone.invalid">{{
+                    getErrorMessage()
+                  }}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <mat-label>Mail Id</mat-label>
+                  <input
+                    matInput
+                    placeholder="Phone Number"
+                    [formControl]="email"
+                    required
+                  />
+                  <mat-error *ngIf="email.invalid">{{
+                    getErrorMessage()
+                  }}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    placeholder="Paternal Grand Father"
+                    [formControl]="phone"
+                    required
+                  />
+                  <mat-error *ngIf="phone.invalid">{{
+                    getErrorMessage()
+                  }}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    placeholder="Paternal Grand Mother"
+                    [formControl]="phone"
+                    required
+                  />
+                  <mat-error *ngIf="phone.invalid">{{
+                    getErrorMessage()
+                  }}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+              <div class="input-field">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Father</mat-label>
+                    <input
+                      matInput
+                      placeholder="Father"
+                      [formControl]="name"
+                      required
+                    />
+                    <mat-error *ngIf="email.invalid">{{
+                      getErrorMessage()
+                    }}</mat-error>
+                  </mat-form-field>
+              </div>
+              <div class="btn">
+                  <button class="nid2">NID/BRC</button>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="input-field">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Mother</mat-label>
+                    <input
+                      matInput
+                      placeholder="Mother"
+                      [formControl]="name"
+                      required
+                    />
+                    <mat-error *ngIf="email.invalid">{{
+                      getErrorMessage()
+                    }}</mat-error>
+                  </mat-form-field>
+              </div>
+              <div class="btn">
+                  <button class="nid3">NID/BRC</button>
+              </div>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    placeholder="Maternal Grand Father Family Admin ID"
+                    [formControl]="name"
+                    required
+                  />
+                  <mat-error *ngIf="phone.invalid">{{
+                    getErrorMessage()
+                  }}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    placeholder="Mothers Grand Father ID"
+                    [formControl]="name"
+                    required
+                  />
+                  <mat-error *ngIf="phone.invalid">{{
+                    getErrorMessage()
+                  }}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input-field">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    placeholder="Maternal Grand Father Family Member ID"
+                    [formControl]="name"
+                    required
+                  />
+                  <mat-error *ngIf="phone.invalid">{{
+                    getErrorMessage()
+                  }}</mat-error>
+                </mat-form-field>
+            </div>
+            
+            
+            <!-- <div class="input-field">
+              <mat-form-field color="accent" appearance="outline">
+                  <mat-label>Date of birth</mat-label>
+                  <input matInput [matDatepicker]="picker1">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Gender</mat-label>
+                <mat-select>
+                  <mat-option value="one">Male</mat-option>
+                  <mat-option value="two">Female</mat-option>
+                  <mat-option value="two">Others</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input
+                  matInput
+                  placeholder="Phone Number"
+                  [formControl]="phone"
+                  required
+                />
+                <mat-error *ngIf="phone.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Mail Id</mat-label>
+                <input
+                  matInput
+                  placeholder="Phone Number"
+                  [formControl]="email"
+                  required
+                />
+                <mat-error *ngIf="email.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Surname</mat-label>
+                <input
+                  matInput
+                  placeholder="Phone Number"
+  
+                />
+  
+              </mat-form-field>
+            </div>
+             <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Top Great Grand Father</mat-label>
+                <input
+                  matInput
+                  placeholder="Top Great Grand Father"
+                  [formControl]="email"
+                  required
+                />
+                <mat-error *ngIf="email.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+  
+  
+            <h2 class="h-two">Address</h2>
+            <div class="small">
+                 <div class="input-field ">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Continent</mat-label>
+                      <mat-select>
+                        <mat-option value="one">Asia</mat-option>
+                        <mat-option value="two">Eorope</mat-option>
+                        <mat-option value="two">Africa</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+                 <div class="input-field ">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Country</mat-label>
+                      <mat-select>
+                        <mat-option value="one">Bangladesh</mat-option>
+                        <mat-option value="two">Eorope</mat-option>
+                        <mat-option value="two">Africa</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+                 <div class="input-field ">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Division</mat-label>
+                      <mat-select>
+                        <mat-option value="one">Asia</mat-option>
+                        <mat-option value="two">Eorope</mat-option>
+                        <mat-option value="two">Africa</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+                 <div class="input-field ">
+                  <mat-form-field appearance="outline">
+                      <mat-label>District</mat-label>
+                      <mat-select>
+                        <mat-option value="one">Asia</mat-option>
+                        <mat-option value="two">Eorope</mat-option>
+                        <mat-option value="two">Africa</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+                 <div class="input-field ">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Union</mat-label>
+                      <mat-select>
+                        <mat-option value="one">Asia</mat-option>
+                        <mat-option value="two">Eorope</mat-option>
+                        <mat-option value="two">Africa</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+                 <div class="input-field">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Sub-District</mat-label>
+                      <mat-select>
+                        <mat-option value="one">Asia</mat-option>
+                        <mat-option value="two">Eorope</mat-option>
+                        <mat-option value="two">Africa</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+  
+  
+  
+  
+  
+             <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Post Office</mat-label>
+                <input
+                  matInput
+                  placeholder="Post Office"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+  
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Zip Code</mat-label>
+                <input
+                  matInput
+                  placeholder="Zip Code"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Area</mat-label>
+                <input
+                  matInput
+                  placeholder="Area"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Home Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Home Name"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>House Name</mat-label>
+                <input
+                  matInput
+                  placeholder="House Name"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Top Great Grand Mother</mat-label>
+                <input
+                  matInput
+                  placeholder="Top Great Grand Mother"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Latest Generation a family Member Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Latest Generation a family Member Name"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>His/ Her Father Name</mat-label>
+                <input
+                  matInput
+                  placeholder="His/Her Father Name"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>His Father Name</mat-label>
+                <input
+                  matInput
+                  placeholder="His/Her Father Name"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>About Your Family</mat-label>
+                <input
+                  matInput
+                  placeholder="About Your Family"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Alternative Family Admin Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Alternative Family Admin Name"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>His/Her Mail ID</mat-label>
+                <input
+                  matInput
+                  placeholder="His/Her Mail ID"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field appearance="outline">
+                <mat-label>His/Her Mobile No</mat-label>
+                <input
+                  matInput
+                  placeholder="His/Her Mobile No"
+                  [formControl]="address"
+                  required
+                />
+                <mat-error *ngIf="address.invalid">{{
+                  getErrorMessage()
+                }}</mat-error>
+              </mat-form-field>
+            </div>-->
+  
+          </div>
+          <div class="two-button">
+              <div class="button-one">
+                  <button>Save</button>
+              </div>
+              <div class="button-two">
+                  <button>Submit to Family Admin</button>
+              </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </section>

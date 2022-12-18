@@ -1,0 +1,50 @@
+<div class="top-input-header">
+  <div class="title">
+    <h2>{{id ? 'Edit' : 'Add New'}} Variations</h2>
+  </div>
+</div> <!-- END Input Form Header -->
+
+
+<form #formElement="ngForm" [formGroup]="dataForm" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="center">
+  <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100" >
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Enter full name" required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <div class="form-array-container">
+    <div class="add-form-array-action">
+      <button type="button" mat-raised-button color="accent" (click)="onAddNewFormString('values')">
+        <mat-icon>add</mat-icon>
+        Add New Value
+      </button>
+
+    </div>
+    <div formArrayName="values" class="form-array-input">
+      <div class="single-field"
+           *ngFor="let data of valuesDataArray?.controls; let i = index">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Type Value {{i + 1}}</mat-label>
+          <input [formControlName]="i" matInput [placeholder]="'Enter Value ' + i + 1">
+        </mat-form-field>
+        <button type="button" mat-mini-fab color="warn" (click)="removeFormArrayField('values', i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div> <!-- END ADDRESS FORM ARRAY -->
+
+
+  <button mat-raised-button color="primary" type="submit">
+    {{id ? 'Update Variations' : 'Add Variations'}}
+  </button>
+
+</form>
+
+<!-- LOADING TEMPLATE -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.5)" size="medium" color="#fff" type="ball-atom" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
+

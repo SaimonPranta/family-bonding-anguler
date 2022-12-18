@@ -1,0 +1,408 @@
+
+
+.login {
+    padding: 50px 0;
+  }
+  .container {
+    display: block;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  .log-in-form {
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 20px;
+    background-color: #9bb6e4;
+    height: auto;
+
+    .border-box {
+      border: 1px solid white;
+      border-radius: 50px;
+      height: auto;
+      background-color: #fff;
+      padding: 10px;
+      h1 {
+        font-family: "Times New Roman", Times, serif;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      h3{
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        padding: 5px 0;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1;
+        color: #fff;
+        background-color: #000;
+      }
+      p {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1;
+        padding: 20px 0 20px 0;
+      }
+      .dashboard {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 0;
+      }
+      .flex{
+        width: 100%;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        .btn{
+            text-align: right;
+            button{
+                min-width: 130px;
+                padding: 10px 25px;
+                margin-right: 30px;
+                font-weight: 600;
+                font-size: 18px;
+                color: #000;
+                border: 3px solid black;
+                cursor: pointer;
+            }
+            .nid{
+                background-color: #4F81BD;
+            }
+            .nid2{
+                background-color: #E26B0A;
+            }
+            .nid3{
+                background-color: #8DB4E2;
+            }
+            .upload{
+                background-color: #8DB4E2;
+            }
+        }
+      }
+      .grid{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        align-items: center;
+        gap: 40px;
+
+        .btn{
+            text-align: right;
+            button{
+                min-width: 130px;
+                padding: 10px 25px;
+                margin-right: 30px;
+                font-weight: 600;
+                font-size: 18px;
+                color: #000;
+                border: 3px solid black;
+                cursor: pointer;
+            }
+            .cam{
+                background-color: #FFC000;
+            }
+            .upload{
+                background-color: #8DB4E2;
+            }
+            .add{
+                background-color: #E26B0A;
+            }
+            .add2{
+                background-color: #DA9694;
+            }
+        }
+      }
+      .two-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+        gap: 20px;
+        .button-one {
+          width: 100%;
+          button {
+            background-color: #00b050;
+            max-width: 500px;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 18px;
+            color: #fff;
+            border: 1px solid black;
+            cursor: pointer;
+          }
+        }
+        .button-two {
+          width: 100%;
+          button {
+            background-color: #ff0000;
+            max-width: 500px;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 18px;
+            color: #fff;
+            border: 1px solid black;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .log-in-form {
+      // border: 2px solid black;
+      border-radius: 15px;
+      padding: 20px;
+      background-color: #9bb6e4;
+      height: auto;
+
+      .border-box {
+        // border: 1px solid black;
+        border-radius: 15px;
+        height: auto;
+        background-color: #fff;
+        padding: 10px 0;
+        h1 {
+          padding-top: 20px;
+          text-align: center;
+          font-size: 20px;
+          font-weight: 300;
+          line-height: 1;
+        }
+        p {
+          text-align: center;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 1;
+          padding: 20px 0 20px 0;
+        }
+
+      }
+    }
+    .input-field {
+      max-width: 600px;
+      ::ng-deep .mat-form-field {
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        width: 100%;
+      }
+    }
+    .small {
+      max-width: 100px;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 5px;
+
+      .input-field {
+
+        max-width: 120px;
+        ::ng-deep .mat-form-field {
+          display: inline-block;
+          position: relative;
+          text-align: left;
+          width: 100%;
+        }
+      }
+    }
+
+    ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+      padding: 0.25em 0 0.75em 0;
+      display: flex;
+    }
+    .h-two{
+        margin-left: 15px !important;
+      }
+  }
+  @media (max-width: 720px) {
+    .log-in-form {
+
+      border-radius: 15px;
+      padding: 20px;
+      background-color: #9bb6e4;
+      height: auto;
+
+      .border-box {
+        // border: 1px solid black;
+        border-radius: 15px;
+        height: auto;
+        background-color: #fff;
+        padding: 10px 0;
+        h1 {
+          padding-top: 20px;
+          text-align: center;
+          font-size: 20px;
+          font-weight: 300;
+          line-height: 1;
+        }
+        h3{
+          margin:5px 10px ;
+        }
+        p {
+          text-align: center;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 1;
+          padding: 20px 0 20px 0;
+        }
+          .dashboard {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 10px;
+      }
+      .flex{
+        display: grid !important;
+        grid-template-columns: repeat(1, 1fr);
+        .btn{
+          text-align: left;
+          button{
+            min-width: 100px;
+            padding: 5px 15px;
+            font-weight: 500;
+            font-size: 14px;
+            border: 2px solid black;
+          }
+        }
+      }
+      .grid{
+        display: grid !important;
+        grid-template-columns: repeat(1, 1fr);
+        text-align: left;
+        .btn{
+          text-align: left;
+          button{
+            min-width: 100px;
+            padding: 5px 15px;
+            font-weight: 500;
+            font-size: 14px;
+            border: 2px solid black;
+        }
+        }
+      }
+        .two-button {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding-bottom: 20px;
+          margin: auto;
+          gap: 15px;
+          .button-one {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            width: 100%;
+            button {
+              margin: auto !important;
+              background-color: #00b050;
+              max-width: 300px;
+              width: 100%;
+              padding: 10px 0;
+              font-size: 18px;
+              color: #fff;
+              border: 1px solid black;
+              cursor: pointer;
+
+            }
+          }
+          .button-two {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+              background-color: #ff0000;
+              max-width: 300px;
+              width: 100%;
+              padding: 10px 0;
+              font-size: 18px;
+              color: #fff;
+              border: 1px solid black;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .input-field {
+      max-width: 600px;
+      ::ng-deep .mat-form-field {
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        width: 100%;
+      }
+    }
+    .small {
+      max-width: 100px;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 5px;
+
+      .input-field {
+        max-width: 120px;
+        ::ng-deep .mat-form-field {
+          display: inline-block;
+          position: relative;
+          text-align: left;
+          width: 100%;
+        }
+      }
+    }
+
+    ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+      padding: 0.25em 0 0.75em 0;
+      display: flex;
+    }
+    .h-two{
+        margin-left: 15px !important;
+      }
+  }
+
+  .input-field {
+    max-width: 600px;
+    ::ng-deep .mat-form-field {
+      display: inline-block;
+      position: relative;
+      text-align: left;
+      width: 100%;
+    }
+
+  }
+  .small {
+    max-width: 100px;
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+
+    .input-field {
+      max-width: 120px;
+      ::ng-deep .mat-form-field {
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        width: 100%;
+      }
+    }
+  }
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0.25em 0 0.75em 0;
+    display: flex;
+  }
+  .h-two{
+      margin-left: 15px !important;
+    }

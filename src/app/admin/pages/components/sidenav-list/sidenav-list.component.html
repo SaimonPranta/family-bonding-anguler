@@ -1,0 +1,36 @@
+<!--fxLayout="row" fxLayoutAlign="start center"-->
+<!--(click)="onClick(menu.id)"-->
+<div class="menu-item" *ngFor="let menu of parentMenu">
+  <a *ngIf="menu.routerLink && !menu.hasSubMenu"
+     mat-button
+     class="list-item"
+     (click)="onClick(menu.id)"
+     [routerLink]="[menu.routerLink]" routerLinkActive="list-item-active"
+     [routerLinkActiveOptions]="(menu.parentId != 0) ? { exact:false } : {exact:true}"
+     [id]="'menu-item-admin-'+menu.id">
+    <mat-icon class="menu-icon">{{menu.icon}}</mat-icon>
+    <span class="menu-title">{{menu.title}}</span>
+  </a>
+  <a *ngIf="menu.href && !menu.hasSubMenu"
+     mat-button
+     class="list-item"
+     (click)="onClick(menu.id)"
+     [attr.href]="menu.href || ''" [attr.target]="menu.target || ''"
+     [id]="'menu-item-admin-'+menu.id">
+    <mat-icon class="menu-icon">{{menu.icon}}</mat-icon>
+    <span class="menu-title">{{menu.title}}</span>
+  </a>
+  <a *ngIf="menu.hasSubMenu"
+     mat-button
+     class="list-item"
+     (click)="onClick(menu.id)"
+     [id]="'menu-item-admin-'+menu.id">
+    <mat-icon class="menu-icon">{{menu.icon}}</mat-icon>
+    <span class="menu-title">{{menu.title}}</span>
+    <mat-icon class="menu-expand-icon transition-2">arrow_drop_down</mat-icon>
+  </a>
+
+  <div *ngIf="menu.hasSubMenu" class="sub-menu" [id]="'sub-menu-admin-'+menu.id">
+    <app-sidenav-list [menuItems]="menuItems" [menuParentId]="menu.id"></app-sidenav-list>
+  </div>
+</div>

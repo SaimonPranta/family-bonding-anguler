@@ -1,0 +1,88 @@
+.hover-menu-main {
+  background-color: #fff;
+  padding: 25px 30px;
+  box-sizing: border-box;
+  display: grid;
+  // overflow-x: hidden;
+  grid-template-columns: repeat(2, 49%);
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.hover-menu-colum {
+  display: block;
+  border-right: 1px solid #eee;
+  padding-right: 15px;
+}
+
+.hover-menu-colum:nth-child(2), .hover-menu-colum:nth-child(4),
+.hover-menu-colum:nth-child(6), .hover-menu-colum:nth-child(8),
+.hover-menu-colum:nth-child(10), .hover-menu-colum:nth-child(12) {
+  border: none;
+}
+
+.hover-menu-details a {
+  color: #BE0101;
+  font-weight: 500;
+  font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  display: block;
+  margin-bottom: 6px;
+  transition: all 0.3s linear;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hover-menu-details a:hover {
+  text-decoration: underline;
+}
+
+.hover-menu-details ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+}
+
+.hover-menu-details ul li {
+  display: block;
+  width: 100%;
+  margin-bottom: 7px;
+  min-width: 100%;
+}
+
+.hover-menu-details ul li a {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  color: #757575;
+  font-weight: 400;
+  font-size: 14px;
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.hover-menu-details ul li a span {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  position: relative;
+  top: 1px;
+  left: 4px;
+}
+
+.hover-menu-details ul li a:hover {
+  color: #BE0101;
+  text-decoration: underline;
+  transform: translateX(3px);
+}
+
+@media(max-width: 1000px) {
+  .hover-menu-main {
+    grid-template-columns: repeat(2, 49%) !important;
+  }
+}
+
+

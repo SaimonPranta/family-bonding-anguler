@@ -1,0 +1,46 @@
+<div class="top-input-header">
+  <div class="title">
+    <h2>{{id ? 'Edit' : 'Add New'}} Division</h2>
+  </div>
+</div> <!-- END Input Form Header -->
+
+
+<form #formElement="ngForm" [formGroup]="dataForm" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="center">
+  <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100">
+    <mat-label>Select Continent</mat-label>
+    <mat-select formControlName="continent" required  (selectionChange)="onContinentSelect($event)">
+      <mat-option *ngFor="let data of continent" [value]="data._id"  >
+        {{data.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error>This field is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100">
+    <mat-label>Select Country</mat-label>
+    <mat-select formControlName="country" required>
+      <mat-option *ngFor="let data of country" [value]="data._id" >
+        {{data.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error>This field is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100" >
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Enter full name" required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+
+
+  <button [style.margin-top]="!dataForm.value.isHtml ? '100px' : '10px'" mat-raised-button color="primary" type="submit">
+    {{id ? 'Update Division' : 'Add Division'}}
+  </button>
+
+</form>
+
+<!-- LOADING TEMPLATE -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.5)" size="medium" color="#fff" type="ball-atom" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

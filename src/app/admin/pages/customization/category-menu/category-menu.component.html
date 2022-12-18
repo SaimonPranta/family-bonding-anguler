@@ -1,0 +1,61 @@
+<div class="top-action">
+  <button mat-raised-button color="primary" [routerLink]="['../', 'add-category-menu']">
+    <mat-icon>add</mat-icon>
+    Add New Category Menu
+  </button>
+</div>
+
+<div class="header">
+  <h2>Category Menu List</h2>
+</div>
+
+<hr class="center-square">
+
+<div class="view-area">
+
+  <div class="container">
+    <div class="cat-list-viewer no-select">
+
+      <nav class="hover-menu bg-color">
+        <ul class="main-menu">
+          <li *ngFor="let menu of categoryMenus | sort: 'priority'">
+            <div class="action">
+              <button mat-icon-button [routerLink]="['../','edit-category-menu', menu._id]">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="openConfirmDialog(menu._id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+            <a href="javascript:">{{menu.name}} <span style="font-size: 10px; color: #FFFFFF">({{menu.priority}})</span></a>
+            <mat-icon>arrow_right</mat-icon>
+            <!-- <ul class="sub-menu" *ngIf="menu.hasChild.length > 0">
+              <li *ngFor="let subMenu of menu.hasChild">
+                <a [routerLink]="'/product-list/' + subMenu.slug">{{subMenu.name}}</a>
+                <mat-icon>arrow_right</mat-icon>
+                <ul class="super-sub-menu" *ngIf="subMenu.hasChild.length > 0">
+                  <li *ngFor="let superSubMenu of subMenu.hasChild">
+                    <a [routerLink]="'/product-list/' + subMenu.slug + '/' + superSubMenu.slug ">{{superSubMenu.name}}</a>
+                  </li>
+                </ul>
+              </li>
+            </ul> -->
+
+            <!---hover-menu-->
+            <div class="sub-mega-menu" *ngIf="menu.hasChild.length > 0">
+              <app-menu-hover-content [parentCategory]="menu" [data]="menu.hasChild"></app-menu-hover-content>
+            </div>
+            <!--hover-menu-end-->
+
+
+          </li>
+        </ul>
+      </nav> <!-- END CATEGORY HOVER MENU PC -->
+    </div> <!-- SHOP BY CATEGORY -->
+  </div>
+
+</div>
+
+<!-- LOADING TEMPLATE -->
+<ngx-spinner style="width: 100vw; height: 100vh" bdColor="rgba(0,0,0,0.25)" size="medium" color="#fff"
+             type="ball-clip-rotate" [fullScreen]="true"><p style="color: white"> Loading... </p></ngx-spinner>

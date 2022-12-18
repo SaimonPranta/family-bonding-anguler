@@ -1,0 +1,44 @@
+.Revenue-statement-section{
+    padding: 50px 0;
+  }
+  .container{
+    display: block;
+    max-width: 1350px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .table{
+      border: 2px solid black;
+      border-collapse: collapse;
+      margin: auto;
+      table-layout: fixed;
+      text-align: center;
+      /* font-family: Arial; */
+      max-width: 1200px;
+       /* font-weight: 600; */
+  }
+  .Revenue-statement{
+    color: #921e1a;
+    font-size: 60px !important;
+    font-weight: 900;
+    padding: 25px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.688);
+  }
+  .table-header{
+    border: 2px solid black;
+  }
+
+  td, th{
+  border: 1px solid black;
+  /* cell padding */
+  padding: 10px 0;
+  width: 6%;
+  }
+
+
+  tr > .bonus{
+      border: 2px solid green;
+  }
+

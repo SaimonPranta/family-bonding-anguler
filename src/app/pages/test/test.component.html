@@ -1,0 +1,11 @@
+<div>
+  <!-- Text Editor -->
+  <quill-editor #editor [modules]="modules" (onEditorCreated)="editorCreated($event)" placeholder="Enter Text"
+                (onSelectionChanged)="onSelectionChanged($event)" (onContentChanged)="onContentChanged($event)" name="content"
+                formControlName="content" [(ngModel)]="htmlString"></quill-editor>
+</div>
+<div>
+  <h2><u>Preview</u></h2>
+  <!-- Preview -->
+  <quill-view-html [content]="htmlString"></quill-view-html>
+</div>

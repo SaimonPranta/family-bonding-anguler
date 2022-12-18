@@ -1,0 +1,167 @@
+<div class="main">
+  <div class="container">
+    <!-- <div class="main-overview">
+      <div class="d-card card-one">
+        <div class="d-data">
+          <mat-icon class="base-icon">
+            pending_actions
+          </mat-icon>
+          <h3 class="title">{{'Pending Order'}}</h3>
+          <h1 class="value"><mat-icon style="margin-right: 10px; opacity: 0.7">check_circle</mat-icon>
+            {{10}}
+          </h1>
+        </div>
+        <div class="bg-circle">
+          <img src="/assets/svg/ic_circle_view.svg" alt="">
+        </div>
+      </div>
+
+      <div class="d-card card-two">
+        <div class="d-data">
+          <mat-icon class="base-icon">
+            local_shipping
+          </mat-icon>
+          <h3 class="title">{{'Order Delivered'}}</h3>
+          <h1 class="value"><mat-icon style="margin-right: 10px; opacity: 0.7">check_circle</mat-icon>
+            {{10}}</h1>
+        </div>
+        <div class="bg-circle">
+          <img src="/assets/svg/ic_circle_view.svg" alt="">
+        </div>
+      </div>
+
+      <div class="d-card card-three">
+        <div class="d-data">
+          <mat-icon class="base-icon">
+            do_not_disturb_on
+          </mat-icon>
+          <h3 class="title">{{'Cancel Order'}}</h3>
+          <h1 class="value"><mat-icon style="margin-right: 10px; opacity: 0.7">check_circle</mat-icon>
+            {{10}}
+          </h1>
+        </div>
+        <div class="bg-circle">
+          <img src="/assets/svg/ic_circle_view.svg" alt="">
+        </div>
+      </div>
+    </div> -->
+
+    <!-- END! Main Essential Data View -->
+
+    <div class="other-view ">
+      <div class="card-extra border-bg-1">
+        <div class="card-details">
+          <div class="card-top">
+            <span>{{adminDashboard?.totalOrders | number:'':'bn'}} </span>
+            <div class="top-icon">
+              <i class="fa fa-arrow-up"></i>
+            </div>
+          </div>
+          <h4>Total Orders</h4>
+        </div>
+        <div class="card-icon">
+          <span><i class="fa fa-home"></i></span>
+        </div>
+      </div>
+
+      <div class="card-extra border-bg-1">
+        <div class="card-details">
+          <div class="card-top">
+            <span>{{ adminDashboard?.pendingOrders | number:'':'bn' }} </span>
+            <div class="top-icon">
+              <i class="fa fa-arrow-up"></i>
+            </div>
+          </div>
+          <h4>Pending Orders</h4>
+        </div>
+        <div class="card-icon">
+          <span><i class="fa fa-home"></i></span>
+        </div>
+      </div>
+
+      <div class="card-extra border-bg-1">
+        <div class="card-details">
+          <div class="card-top">
+            <span>{{adminDashboard?.countTodayAddedOrder | number:'':'bn'}} </span>
+            <div class="top-icon">
+              <i class="fa fa-arrow-up"></i>
+            </div>
+          </div>
+          <h4>Today's Orders</h4>
+        </div>
+        <div class="card-icon">
+          <span><i class="fa fa-home"></i></span>
+        </div>
+      </div>
+
+      <div class="card-extra border-bg-1">
+        <div class="card-details">
+          <div class="card-top">
+            <span>{{adminDashboard?.totalProducts | number:'':'bn'}} </span>
+            <div class="top-icon">
+              <i class="fa fa-arrow-up"></i>
+            </div>
+          </div>
+          <h4>Total Products</h4>
+        </div>
+        <div class="card-icon">
+          <span><i class="fa fa-home"></i></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <app-graph></app-graph> -->
+  <div class="section-2">
+    <div class="app_line">
+      <app-line></app-line>
+    </div>
+    <div class="app_dount">
+      <app-donut></app-donut>
+    </div>
+  </div>
+
+
+  <div class="table-wrapper space">
+
+    <table>
+      <tr>
+        <th>Order No</th>
+        <th>Phone No</th>
+        <th>Created Date</th>
+        <th>City</th>
+        <th>Payment Type</th>
+        <th>Payment Status</th>
+        <th>Order Status</th>
+        <th>Grand total</th>
+        <th>Actions</th>
+      </tr>
+      <tr
+        *ngFor="let data of orders; let i = index">
+        <td>{{data.orderId}}</td>
+        <td>{{data.phoneNo}}</td>
+        <td>{{data.checkoutDate | date: 'mediumDate'}}</td>
+        <td>{{data.city}}</td>
+        <td>{{data.paymentType | slugToNormal : '_'}}</td>
+        <td>
+          <div [ngClass]="data.paymentStatus === 'paid' ? 'paid' : 'unpaid'">
+            {{data.paymentStatus}}
+          </div>
+        </td>
+        <td [ngClass]="ngClassService.getDeliveryStatusColor(data.orderStatus)">
+          {{data.orderStatus | orderStatus}}
+        </td>
+
+        <td>৳{{data.grandTotal | number : '': 'bn'}}</td>
+        <td class="td-action">
+          <a style="margin-left: 5px;" mat-mini-fab color="primary" [routerLink]="['../../', 'sales', 'order-details', data._id]"
+             mat-icon-button  matTooltip="View Details">
+            <mat-icon>visibility</mat-icon>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

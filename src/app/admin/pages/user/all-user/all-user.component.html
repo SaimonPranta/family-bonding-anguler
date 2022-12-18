@@ -1,0 +1,215 @@
+<section class="admin-data-sec">
+  <div class="top-data-header">
+    <div class="title">
+      <h2>All Users</h2>
+    </div>
+
+    <form class="table-search" #searchForm=ngForm>
+      <input type="text"
+             #searchInput
+             name="searchTerm"
+             autocomplete="off"
+             ngModel placeholder="Search username or phone no..">
+      <button><i class="fa fa-search"></i></button>
+    </form>
+
+    <div class="action">
+
+      <button *ngIf="checkAddPermission" mat-raised-button color="accent" [routerLink]="['../', 'add-user']">
+        <mat-icon>add</mat-icon>
+        Add User
+      </button>
+    </div>
+
+  </div> <!-- END TOP DATA HEADER -->
+
+  <div class="action-multiple">
+
+    <div class="date-filter">
+      <mat-form-field class="mat-date-input-field" appearance="outline" (click)="picker.open()">
+        <mat-label>Filter Join Date Range</mat-label>
+        <mat-date-range-input [formGroup]="dataFormDateRange" [rangePicker]="picker" [max]="today">
+          <input matStartDate formControlName="start" placeholder="Start date" readonly>
+          <input matEndDate formControlName="end" placeholder="End date" readonly
+                 (dateChange)="endChangeRegDateRange($event)">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+        <mat-error *ngIf="dataFormDateRange.controls.start.hasError('matStartDateInvalid')">Invalid start date
+        </mat-error>
+        <mat-error *ngIf="dataFormDateRange.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="sort">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="menuStatus">
+        Designation
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menuStatus="matMenu">
+        <button *ngFor="let data of designations; let i = index" mat-menu-item
+                (click)="filterData(data._id, i, 'designation')"
+                [class.dropdown-active]="activeFilter1 === i">
+          {{data.name}}
+        </button>
+      </mat-menu>
+    </div>
+
+    <div class="sort">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="menuCategory">
+        User Type
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menuCategory="matMenu">
+        <button *ngFor="let data of userTypes; let i = index" mat-menu-item
+                (click)="filterData(data._id, i, 'userType')"
+                [class.dropdown-active]="activeFilter2 === i">
+          {{data.name}}
+        </button>
+      </mat-menu>
+    </div>
+
+    <div class="sort">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="menuTag">
+        Gender
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menuTag="matMenu">
+        <button *ngFor="let data of genders; let i = index" mat-menu-item
+                (click)="filterData(data.value, i, 'gender')"
+                [class.dropdown-active]="activeFilter3 === i">
+          {{data.viewValue}}
+        </button>
+      </mat-menu>
+    </div>
+
+    <div class="sort">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="menuSort">
+        Sort By
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menuSort="matMenu">
+        <button mat-menu-item (click)="sortData({updatedAt: -1}, 1)" [class.dropdown-active]="activeSort === 1">
+          Last Update
+        </button>
+        <button (click)="sortData({name: 1}, 2)" mat-menu-item [class.dropdown-active]="activeSort === 2">
+          A-Z
+        </button>
+      </mat-menu>
+    </div>
+
+  </div>
+
+  <hr class="center-square">
+
+  <div class="table-wrapper space">
+
+    <div class="table-action" [class.dual]="activeSort || filter">
+      <div class="left" *ngIf="activeSort || filter">
+        <button mat-stroked-button color="accent" (click)="onRemoveAllQuery()">
+          <mat-icon>close</mat-icon>
+          Clear FilterData
+        </button>
+      </div>
+
+      <div class="right" *ngIf="selectedIds && selectedIds.length">
+<!--        <button *ngIf="checkEditPermission" mat-stroked-button color="primary" [matMenuTriggerFor]="menu">-->
+<!--          Change Visibility-->
+<!--          <mat-icon>arrow_drop_down</mat-icon>-->
+<!--        </button>-->
+<!--        <mat-menu #menu="matMenu">-->
+<!--          <button mat-menu-item (click)="openConfirmDialog('edit', {visibility: true})">Public</button>-->
+<!--          <button mat-menu-item (click)="openConfirmDialog('edit', {visibility: false})">Private</button>-->
+<!--        </mat-menu>-->
+
+        <button *ngIf="checkDeletePermission" mat-stroked-button color="warn" (click)="openConfirmDialog('delete')"
+                matTooltip="Delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div> <!-- END Table Action -->
+
+    <table>
+      <tr>
+        <th class="t-checkbox">
+          <mat-checkbox #matCheckbox (change)="onAllSelectChange($event)"></mat-checkbox>
+        </th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Type</th>
+        <th>Designation</th>
+        <th>Join At</th>
+        <th>Access</th>
+        <th>Actions</th>
+      </tr>
+      <tr
+        *ngFor="let data of users | paginate: { itemsPerPage: usersPerPage, currentPage: currentPage, totalItems: totalUsers } ; let i = index">
+        <td class="t-checkbox">
+          <mat-checkbox class="t-mat-checkbox" [(ngModel)]="data.select"
+                        (ngModelChange)="onCheckChange($event, i, data._id)"></mat-checkbox>
+        </td>
+        <td class="img-wrapper">
+          <img checkImageProfile class="table-image circle" [src]="data && data?.profileImg ? data.profileImg : ''" [alt]="">
+        </td>
+
+        <td>{{data.name}}</td>
+        <td>{{data.username}}</td>
+        <td>{{data.phoneNo}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.gender}}</td>
+        <td>{{data.userType?.name}}</td>
+        <td>{{data.designation?.name}}</td>
+        <td>{{data.joinDate | date}}</td>
+        <td [style.color]="data.hasAccess ? 'green' : 'red'">{{data.hasAccess ? 'Yes' : 'No'}}</td>
+        <td class="td-action" style="width: 180px;">
+          <button [disabled]="data._id === adminId || !checkEditPermission"
+                  [routerLink]="['../', 'edit-user', data._id]" mat-mini-fab matTooltip="Edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <!--          <button mat-mini-fab matTooltip="Delete">-->
+          <!--            <mat-icon>delete</mat-icon>-->
+          <!--          </button>-->
+          <a style="margin-left: 5px;"
+             mat-mini-fab
+             color="primary"
+             mat-icon-button
+             matTooltip="KPI Reports"
+             [routerLink]="['../../', 'kpi-reports', data._id]"
+          >
+            <mat-icon>task</mat-icon>
+          </a>
+
+          <a style="margin-left: 5px; background:#02717f; color: #fff"
+             mat-mini-fab
+             mat-icon-button
+             matTooltip="Stand Up Reports"
+             [routerLink]="['../../', 'standup', data._id]"
+          >
+            <mat-icon>grade</mat-icon>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="pagination-container">
+    <pagination-controls
+      class="data-pagination"
+      [autoHide]="true"
+      [maxSize]="15"
+      (pageChange)="onPageChanged($event)">
+    </pagination-controls>
+  </div>     <!-- END PAGINATION -->
+
+
+  <!-- LOADING TEMPLATE -->
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.12)" size="medium" color="#eb7b0d" type="timer" [fullScreen]="false">
+    <p style="color: #eb7b0d; font-size: 18px; font-weight: 600"> Loading... </p>
+  </ngx-spinner>
+
+</section>

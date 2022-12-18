@@ -1,0 +1,266 @@
+<section class="sidebar">
+    <div class="header-area">
+      <div class="header-main">
+        <div class="logo" routerLink="/">
+          <img src="../../../assets/logo/Picture1.jpg" alt="" />
+        </div>
+        <div class="menu-bar">
+          <span (click)="sideNavToggle()" class="material-icons">menu</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-page-render">
+      <div
+        class="page-render-area-main"
+        [ngClass]="{ 'p-100px': sideNav == false }"
+      >
+        <!---side-nav-->
+        <div
+          class="side-nav"
+          [ngClass]="{ 'w-100px side-nav-active': sideNav == false }"
+        >
+          <div class="side-nav-main" [ngClass]="{ 'over-x': sideNav == false }">
+            <!---sidenav-top-->
+            <div class="side-nav-top"  [class]="sideNav ? '' : 'al-center'">
+              <div class="logo" [class]="sideNav ? 's' : 'logo-hide'">
+                <img src="../../../assets/logo/Picture1.jpg" alt="" />
+              </div>
+              <div class="text" *ngIf="sideNav">
+                <h4>FAMILY BONDING</h4>
+              </div>
+              <div class="menu-bar">
+                <span (click)="sideNavToggle()" class="material-icons">menu</span>
+              </div>
+            </div>
+            <!--menu-->
+            <div class="menu">
+              <ul>
+                <li>
+                  <a routerLink="dashboard" routerLinkActive="link-active">
+                    <span class="material-icons icon">home</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Dashboard
+                    </span>
+                  </a>
+                </li>
+                <li class="parent-menu" >
+                  <a routerLink="/family-member-basic-data" routerLinkActive="link-active">
+                    <span class="material-icons icon">check_circle</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Single Family Basic Info
+                    </span>
+                  </a>
+                </li>
+
+
+                <li>
+                  <a routerLink="/business-manager
+                  " routerLinkActive="link-active">
+                    <span class="material-icons icon">star</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Business Manager
+
+                    </span>
+                  </a>
+                </li>
+
+
+
+
+                <li class="parent-menu" (click)="openSubmenu1()">
+                  <a routerLink="/fm-survey" routerLinkActive="link-active">
+                    <span class="material-icons icon">check_circle</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Survey
+                    </span>
+                  </a>
+                </li>
+                <li class="submenu" *ngIf="submenu1">
+                    <a
+                      routerLink="/"
+                      routerLinkActive="link-active"
+                    >
+                      <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                        >Participent
+                      </span>
+                    </a>
+                  </li>
+                <li class="submenu" *ngIf="submenu1">
+                    <a
+                      routerLink="/fm-survey-req"
+                      routerLinkActive="link-active"
+                    >
+                      <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                        >Request
+                      </span>
+                    </a>
+                  </li>
+                <li class="parent-menu" (click)="openSubmenu2()">
+                  <a routerLink="/fm-survey" routerLinkActive="link-active">
+                    <span class="material-icons icon">check_circle</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Poll
+                    </span>
+                  </a>
+                </li>
+                <li class="submenu" *ngIf="submenu2">
+                    <a
+                      routerLink="/"
+                      routerLinkActive="link-active"
+                    >
+                      <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                        >Participent
+                      </span>
+                    </a>
+                  </li>
+                <li class="submenu" *ngIf="submenu2">
+                    <a
+                      routerLink="/"
+                      routerLinkActive="link-active"
+                    >
+                      <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                        >Request
+                      </span>
+                    </a>
+                  </li>
+                <li class="parent-menu" (click)="openSubmenu3()">
+                  <a routerLink="/fm-survey" routerLinkActive="link-active">
+                    <span class="material-icons icon">check_circle</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Event AI Attendance
+
+                    </span>
+                  </a>
+                </li>
+                <li class="submenu" *ngIf="submenu3">
+                    <a
+                      routerLink="/fm-event-al-attendence"
+                      routerLinkActive="link-active"
+                    >
+                      <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                        >Participent
+                      </span>
+                    </a>
+                  </li>
+                <li class="submenu" *ngIf="submenu3">
+                    <a
+                      routerLink="/"
+                      routerLinkActive="link-active"
+                    >
+                      <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                        >Request
+                      </span>
+                    </a>
+                  </li>
+
+
+                <li>
+                  <a routerLink="" routerLinkActive="link-active">
+                    <span class="material-icons icon">check_circle</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Service Search
+
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    routerLink="gallery/all-images"
+                    routerLinkActive="link-active"
+                  >
+                    <span class="material-icons icon">check_circle</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Blood  Donor
+
+                    </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a routerLink="profile" routerLinkActive="link-active">
+                    <span class="material-icons icon">person</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Gallery
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="profile" routerLinkActive="link-active">
+                    <span class="material-icons icon">person</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >To-Do-List
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="profile" routerLinkActive="link-active">
+                    <span class="material-icons icon">person</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >Transaction
+
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="profile" routerLinkActive="link-active">
+                    <span class="material-icons icon">person</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >News Letter
+
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="profile" routerLinkActive="link-active">
+                    <span class="material-icons icon">person</span>
+                    <span [class]="sideNav ? 'menu-show' : 'menu-hide'"
+                      >To  Family Admin
+
+
+                    </span>
+                  </a>
+                </li>
+                <!-- <li>
+                      <a (click)="onLogout()" style="cursor: pointer">
+                        <span class="material-icons icon">logout</span>
+                        <span
+                          [class]="sideNav?'menu-show':'menu-hide'">Logout
+                        </span>
+                      </a>
+                    </li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--all-page-render-->
+        <div class="all-page-render">
+          <div class="grid">
+            <div class="logo">
+              <img src="../../../assets/svg//g-image.png" alt="logo" />
+            </div>
+            <div class="input">
+              <input type="text" placeholder="Search Here...." />
+            </div>
+            <div class="user">
+              <mat-icon class="font" matBadge="9" matBadgeColor="warn"
+                >notifications</mat-icon
+              >
+              <div class="profile">
+                <div [matMenuTriggerFor]="menu">
+                  <img src="../../../assets/svg/man-face.jpg" alt="" />
+                </div>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>Change Password</button>
+                  <button mat-menu-item>Log Out</button>
+                </mat-menu>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" *ngIf="sideNav == false" (click)="sideNavToggle()"></div>
+  </section>
+

@@ -1,0 +1,17 @@
+<!--Main Head Navbar..-->
+<app-header (sidenavNavToggle)="sidenav.toggle()"></app-header>
+
+
+<!--SideNav bar-->
+<mat-sidenav-container>
+  <!--[mode]="(isHandset$ | async) ? 'over' : 'side'"-->
+  <mat-sidenav #sidenav [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isMidDevice$ | async) && !(isHandset$ | async)">
+    <app-sidenav-list [menuItems]="menuList" [menuParentId]="null"></app-sidenav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

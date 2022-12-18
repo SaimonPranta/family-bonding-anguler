@@ -1,0 +1,89 @@
+<div class="container-fluid">
+
+  <div class="header">
+    <h2>Add New Category Menu</h2>
+    <div class="link">
+      <p><a href="https://fonts.google.com/icons" target="_blank">Material Icon</a></p>
+     <p> <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free" target="_blank">Font Awesome Icon</a></p>
+    </div>
+  </div>
+
+  <div class="required-area">
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Priority Number</mat-label>
+        <input #inputPriority matInput [(ngModel)]="priority" placeholder="Enter priority number" type="number"
+               (ngModelChange)="priorityChangeFn($event)">
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Icon Type</mat-label>
+        <mat-select #inputIconType [(ngModel)]="iconType" placeholder="Select Icon Type">
+          <mat-option *ngFor="let data of iconTypes" [value]="data.value">
+            {{data.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mat-form-field" fxHide [fxShow]="iconType">
+        <mat-label>Icon Name</mat-label>
+        <input #inputIconName [(ngModel)]="iconName"  matInput placeholder="Enter icon name">
+      </mat-form-field>
+  </div> <!-- END REQUIRED AREA -->
+
+  <div class="main-top">
+
+    <div class="px-1">
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Category</mat-label>
+        <mat-select #matSelectCat placeholder="Select category" (selectionChange)="onSelectCategory($event)">
+          <mat-option *ngFor="let cat of categories" [value]="cat">
+            {{cat.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error>Category is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="px-1">
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Sub Category</mat-label>
+        <mat-select #matSelectSubCat required multiple (selectionChange)="onSelectSubCat($event)">
+          <mat-option *ngFor="let sub of subCategories" [value]="sub">
+            <span>{{sub.name}}</span>
+          </mat-option>
+        </mat-select>
+        <mat-error>SubCategory is required</mat-error>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="sub-cat-list" *ngIf="categoryMenu && categoryMenu.hasChild.length > 0">
+    <mat-card *ngFor="let child of categoryMenu.hasChild; let i = index" class="m-card">
+      <h3>{{child.name}}</h3>
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Brand</mat-label>
+        <mat-select multiple (selectionChange)="onSelectSubCatBrand($event, i)" [value]="getBrand(child.hasChild)">
+          <mat-option *ngFor="let br of brands" [value]="br">
+            <span>{{br.name}}</span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+  </div>
+
+  <div class="action-view" *ngIf="categoryMenu">
+    <button class="btn-round" mat-raised-button color="primary" (click)="openConfirmDialog()">
+      {{id ? 'Update Menu' : 'Save Menu'}}
+    </button>
+  </div>
+
+
+</div>
+
+
+<!-- LOADING TEMPLATE -->
+<ngx-spinner style="width: 100vw; height: 100vh" bdColor="rgba(0,0,0,0.25)" size="medium" color="#fff"
+             type="ball-clip-rotate" [fullScreen]="true"><p style="color: white"> Loading... </p></ngx-spinner>
+

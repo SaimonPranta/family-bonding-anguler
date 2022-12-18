@@ -1,0 +1,68 @@
+<div class="top-input-header">
+  <div class="title">
+    <h2>{{id ? 'Edit' : 'Add New'}} Brand</h2>
+  </div>
+</div> <!-- END Input Form Header -->
+
+
+<form #formElement="ngForm" [formGroup]="dataForm" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="center">
+
+  <div class="form-img-avatar" (click)="openGalleryDialog()">
+    <img [src]="pickedImage" alt="">
+  </div>
+
+  <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100" >
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Enter full name" required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+
+<!--  <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100">-->
+<!--    <mat-label>Serial</mat-label>-->
+<!--    <input formControlName="serial" digitOnly matInput placeholder="Enter serial">-->
+<!--    <mat-error>This field is required</mat-error>-->
+<!--  </mat-form-field>-->
+
+  <mat-form-field appearance="outline" class="w-100 px-1" fxFlex="100" >
+    <mat-label>Short Description</mat-label>
+    <textarea formControlName="shortDesc" matInput placeholder="Enter shortDesc" [rows]="2"></textarea>
+  </mat-form-field>
+
+
+  <div class="w-100 px-1 check-option" fxFlex="100" >
+    <mat-checkbox formControlName="isHtml" (change)="onCheckChange($event)">Want to paste HTML?</mat-checkbox>
+  </div>
+
+  <mat-form-field *ngIf="dataForm.value.isHtml" appearance="outline" class="w-100 px-1" fxFlex="100">
+    <mat-label>Paste HTML Code</mat-label>
+    <textarea
+      (ngModelChange)="onChangeBaseHtml($event)"
+      formControlName="htmlBase"
+      matInput
+      [rows]="6">
+        </textarea>
+  </mat-form-field>
+
+  <div class="html-view" fxFlex="100" *ngIf="dataForm.value.isHtml">
+    <div class="description" [innerHTML]="dataForm.value.description | safeHtmlCustom"></div>
+  </div>
+
+  <div fxFlex="100" class="px-1" *ngIf="!dataForm.value.isHtml">
+    <quill-editor #editor
+                  [modules]="modules"
+                  [sanitize]="true"
+                  classes="additional"
+                  formControlName="description"></quill-editor>
+  </div>
+
+  <button [style.margin-top]="!dataForm.value.isHtml ? '100px' : '10px'" mat-raised-button color="primary" type="submit">
+    {{id ? 'Update Blog' : 'Add Blog'}}
+  </button>
+
+</form>
+
+<!-- LOADING TEMPLATE -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.5)" size="medium" color="#fff" type="ball-atom" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

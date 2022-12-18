@@ -1,0 +1,959 @@
+<section class="Expression">
+    <div class="container">
+      <div class="log-in-form">
+        <div class="border-box">
+          <h1>EOI(Expression of Interest)</h1>
+          <div class="dashboard">
+            <div class="Eoi_Tab">
+                <ul>
+                    <li (click)="onTabClick('EOI Project Registration')"
+                        [class.active]="activeTab == 'EOI Project Registration'">EOI Project Registration</li>
+                    <li (click)="onTabClick('EOI Submission')"
+                        [class.active]="activeTab == 'EOI Submission'">EOI Submission</li>
+                </ul>
+            </div>
+
+            <div *ngIf="activeTab == 'EOI Project Registration'" class="Eoi_Submission"> 
+                      
+                         
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Your Own EOI Serial Number</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Your Own EOI Serial Number "
+                                  [formControl]="serialNumber"
+                                  required
+                                />
+                                <mat-error *ngIf="email.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Applicant Name</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Applicant Name"
+                                  [formControl]="name"
+                                  required
+                                />
+                                <mat-error *ngIf="email.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                  
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Applicant Gender</mat-label>
+                                <mat-select>
+                                  <mat-option value="one">Male</mat-option>
+                                  <mat-option value="two">Female</mat-option>
+                                  <mat-option value="two">Others</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Applicant (WhatsApp) Mobile No</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Applicant (WhatsApp) Mobile No"
+                                  [formControl]="phone"
+                                  required
+                                />
+                                <mat-error *ngIf="phone.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Applicant Mail Id</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Applicant Mail Id"
+                                  [formControl]="email"
+                                  required
+                                />
+                                <mat-error *ngIf="email.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                  
+                            <h2 class="h-two">Address</h2>
+                            <div class="small">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Continent</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Country</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Bangladesh</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Division</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>District</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Union</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Sub-District</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                  
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Post Office</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Post Office"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                  
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Zip Code</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Zip Code"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Area/Village</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Area/Village"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                  
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Street#/Name</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Street#/Name"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Plot#/House Name</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Plot#/House Name"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Flat#/Home Name</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Flat#/Home Name"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="medium">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Property Category</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Developer Land</mat-option>
+                                    <mat-option value="two">Private Land</mat-option>
+                                    <mat-option value="two">Lease Land</mat-option>
+                                    <mat-option value="one">Industrial Land</mat-option>
+                                    <mat-option value="two">Cottage</mat-option>
+                                    <mat-option value="two">Manufactured</mat-option>
+                                    <mat-option value="one">Family House</mat-option>
+                                    <mat-option value="two">Town House</mat-option>
+                                    <mat-option value="two">Apartment</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <button>Add</button>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Property Type(If Applicable)</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Property Type(If Applicable)"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="medium">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Want to</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Develop</mat-option>
+                                    <mat-option value="two">Sale</mat-option>
+                                    <mat-option value="two">Rent</mat-option>
+                                    <mat-option value="one">Lease</mat-option>
+                                    <mat-option value="two">Mortgage</mat-option>
+                                    <mat-option value="two">Asset Management</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <button>Add</button>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Project Name</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Applicant Name"
+                                  [formControl]="name"
+                                  required
+                                />
+                                <mat-error *ngIf="email.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <h2 class="h-two">Address</h2>
+                            <div class="small">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Continent</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Country</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Bangladesh</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Division</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>District</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Union</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Sub-District</mat-label>
+                                  <mat-select>
+                                    <mat-option value="one">Asia</mat-option>
+                                    <mat-option value="two">Eorope</mat-option>
+                                    <mat-option value="two">Africa</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Post Office</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Post Office"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                  
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Zip Code</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Zip Code"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Area/Village</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Area/Village"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                  
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Street#/Name</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Street#/Name"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Plot#/House Name</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Plot#/House Name"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Flat#/Home Name</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Flat#/Home Name"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Project Summery</mat-label>
+                                <textarea
+                                  matInput
+                                  placeholder="Project Summery"
+                                  [formControl]="address"
+                                  required
+                                ></textarea>
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                  
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Approval Authority</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Approval Authority"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Approved Documents</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Approved Documents"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Project Verification Date</mat-label>
+                                <input matInput [matDatepicker]="picker1" />
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle
+                                  matIconSuffix
+                                  [for]="picker1"
+                                ></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Project Validation Last Date</mat-label>
+                                <input matInput [matDatepicker]="picker1" />
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle
+                                  matIconSuffix
+                                  [for]="picker1"
+                                ></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Project Contact Person(Authorized)</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Project Contact Person(Authorized)"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Contact Person(WhatsApp)Mobile Number</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Project Contact Person(Authorized)"
+                                  [formControl]="phone"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Contact Person Mail Id</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Applicant Mail Id"
+                                  [formControl]="email"
+                                  required
+                                />
+                                <mat-error *ngIf="email.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="medium">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Contact Person Mail Id</mat-label>
+                                  <input
+                                    matInput
+                                    placeholder="Applicant Mail Id"
+                                    [formControl]="address"
+                                    required
+                                  />
+                                  <mat-error *ngIf="address.invalid">{{
+                                    getErrorMessage()
+                                  }}</mat-error>
+                                </mat-form-field>
+                              </div>
+                              <button class="button2">UPLOAD</button>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Our MoU Date</mat-label>
+                                <input matInput [matDatepicker]="picker1" />
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle
+                                  matIconSuffix
+                                  [for]="picker1"
+                                ></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Eol Submission Last Date</mat-label>
+                                <input matInput [matDatepicker]="picker1" />
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle
+                                  matIconSuffix
+                                  [for]="picker1"
+                                ></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+                            </div>
+                            <div class="medium">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Project Registration with us Docs</mat-label>
+                                  <input
+                                    matInput
+                                    placeholder="Project Registration with us Docs"
+                                    [formControl]="address"
+                                    required
+                                  />
+                                  <mat-error *ngIf="address.invalid">{{
+                                    getErrorMessage()
+                                  }}</mat-error>
+                                </mat-form-field>
+                              </div>
+                              <button class="button2">UPLOAD</button>
+                            </div>
+                            <div class="medium">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Approved Project Proposal</mat-label>
+                                  <input
+                                    matInput
+                                    placeholder="Approved Project Proposal"
+                                    [formControl]="address"
+                                    required
+                                  />
+                                  <mat-error *ngIf="address.invalid">{{
+                                    getErrorMessage()
+                                  }}</mat-error>
+                                </mat-form-field>
+                              </div>
+                              <button class="button2">UPLOAD</button>
+                            </div>
+                            <div class="medium">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Project Image</mat-label>
+                                  <input
+                                    matInput
+                                    placeholder="Project Image"
+                                    [formControl]="address"
+                                    required
+                                  />
+                                  <mat-error *ngIf="address.invalid">{{
+                                    getErrorMessage()
+                                  }}</mat-error>
+                                </mat-form-field>
+                              </div>
+                              <button class="button2">UPLOAD</button>
+                            </div>
+                            <div class="medium">
+                              <div class="input-field">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Project 3D Image</mat-label>
+                                  <input
+                                    matInput
+                                    placeholder="Project 3D Image"
+                                    [formControl]="address"
+                                    required
+                                  />
+                                  <mat-error *ngIf="address.invalid">{{
+                                    getErrorMessage()
+                                  }}</mat-error>
+                                </mat-form-field>
+                              </div>
+                              <button class="button2">UPLOAD</button>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Project VIDEO Link</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Project VIDEO Link"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Project Value</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Project Value"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Total Project Share(If Applicable)</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Total Project Share(If Applicable)"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Total Project Share(If Applicable)</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Total Project Share(If Applicable)"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Per Share Value(If Applicable)</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Per Share Value(If Applicable)"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Handling Bank Details</mat-label>
+                                <textarea
+                                  matInput
+                                  placeholder="Handling Bank Details"
+                                  [formControl]="address"
+                                  required
+                                ></textarea>
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Service Charge Percentage Value on</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Service Charge Percentage Value on"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="input-field">
+                              <mat-form-field appearance="outline">
+                                <mat-label>Service Charge Percentage</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="Service Charge Percentage"
+                                  [formControl]="address"
+                                  required
+                                />
+                                <mat-error *ngIf="address.invalid">{{
+                                  getErrorMessage()
+                                }}</mat-error>
+                              </mat-form-field>
+                            </div>
+                            <h2 class="accepted-payment">Accepted Payment Method Documents</h2>
+                            <div>
+                              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                              <label for="vehicle1"> Pay Order</label><br />
+                              <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+                              <label for="vehicle2"> Bank Draft</label><br />
+                              <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+                              <label for="vehicle3"> FDR Token Right Transfer</label><br />
+                              <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+                              <label for="vehicle3"> Verified Bank Guarantee</label><br />
+                              <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+                              <label for="vehicle3"> Receiver Approved Liqiuid Cash/Gold/Diamond</label><br />
+                            </div>
+                            <h2 class="accepted-payment">Payment Method Docs. Validity Period</h2>
+                            <div class="input-field">
+                              <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Date</mat-label>
+                                <input matInput [matDatepicker]="picker1" />
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle
+                                  matIconSuffix
+                                  [for]="picker1"
+                                ></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+                            </div>
+                            <div class="two-button">
+                                <div class="button-one">
+                                  <button>Save</button>
+                                </div>
+                                <div class="button-two">
+                                  <button>Submit to Super Admin</button>
+                                </div>
+                        </div>
+                        
+            </div>
+
+            <div *ngIf="activeTab == 'EOI Submission'" class="Eoi_Submission">
+                
+                <div class="Tables">
+                    <div class="Table1">
+                    <h2 class="h-two">Project Information</h2>
+                    <div class="Table1_contens">
+                     <div class="input-field ">
+                      <mat-form-field appearance="outline">
+                          <mat-label>List Of Project</mat-label>
+                          <mat-select>
+                            <mat-option value="one">Project-1</mat-option>
+                            <mat-option value="two">Project-2</mat-option>
+                            <mat-option value="two">Project-3</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <input type="text" placeholder="Selected Project Name">
+                    </div>
+                     <div class="input-field ">
+                      <mat-form-field appearance="outline">
+                          <mat-label>Project Summery</mat-label>
+                          <mat-select>
+                            
+                          </mat-select>
+                        </mat-form-field>
+                        <input type="text" placeholder="Project Code">
+                    </div>
+                     <div class="input-field ">
+                      <mat-form-field appearance="outline">
+                          <mat-label>Participant as a</mat-label>
+                          <mat-select>
+                            <mat-option value="one">Buyer</mat-option>
+                            <mat-option value="two">Tenant</mat-option>
+                            <mat-option value="two">Developer</mat-option>
+                            <mat-option value="two">Lease Holder</mat-option>
+                            <mat-option value="two">Mortgagor</mat-option>
+                            <mat-option value="two">Asset Manager</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <input type="text" placeholder="Participant %">
+                    </div>
+                     <div class="input-field ">
+                      <mat-form-field appearance="outline">
+                          <mat-label>Submission Last Date</mat-label>
+                          <mat-select>
+                            <mat-option value="two">13-12-2022</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <input type="text" placeholder="Participant Amount $">
+                    </div>
+                    </div>
+                </div>
+                    <div class="Table2">
+                        <h2 class="h-two">Project Share [If Applicable]</h2>
+                        <div class="Tale2_contents">
+                            <span>Total Share</span>
+                            <span>Per Share Value</span>
+                            <span>Requested Share</span>
+                            <span>Your Bank</span>
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                        </div>
+                    </div>
+
+                    <div class="Table3">
+                        <h2 class="h-two">Project Share Found [If Applicable]</h2>
+                        <div class="Table3_cotents">
+                            <span>Total Share</span>
+                            <span>Per Share Value</span>
+                            <span>Requested Share</span>
+                            <span>Your Bank</span>
+                            <span>FDR Token </span>
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <span>Pay Order</span>
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <span>BG</span>
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <span>Banked Looked Liquid Assets</span>
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                            <input type="text" placeholder="Input Field">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="two-button">
+                    <div class="button-one">
+                        <button>Submit to Super Admin</button>
+                    </div>
+                    <div class="button-two">
+                        <button>Cancel</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--
+  <mat-form-field appearance="outline">
+  
+  
+  
+  
+  
+  <input matInput placeholder="address" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="Post Office" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="Zip Code" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="Area/Village" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="Street" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="Home Name" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="House Name" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="Top Great Grand Mother" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="Latest Generation a Family Member" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="His/Her Father Name" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="About Your Family" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="Alternative Family Admin Name" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="His/Her Mail ID" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="His/Her Mobile" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field> -->
+  

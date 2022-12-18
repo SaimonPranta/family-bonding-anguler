@@ -1,0 +1,57 @@
+@import "src/theme/variables";
+@import "src/theme/exports/hover-category-menu";
+
+
+/*----------------
+TOP ACTION
+------------------*/
+.top-action {
+  text-align: right;
+  margin-top: 16px;
+  padding-right: 16px;
+
+  button {
+    ::ng-deep {
+      span {
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+
+/*----------------
+HEADER TITLE
+------------------*/
+.header {
+  h2 {
+    text-align: center;
+    font-family: $font-en-primary;
+  }
+}
+
+.view-area {
+  width: 100%;
+  margin-top: 20px;
+  position: fixed;
+  z-index: 99;
+  margin-bottom: 30px;
+
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: $theme-container-width;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+  }
+}
+
+.hover-menu {
+  width: 350px;
+}
+.hover-menu.bg-color {
+  background: #BE0101;
+}

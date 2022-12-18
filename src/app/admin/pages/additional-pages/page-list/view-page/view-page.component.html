@@ -1,0 +1,57 @@
+
+<div class="container">
+  <form [formGroup]="dataForm" (ngSubmit)="onSubmit()"
+        autocomplete="off">
+    <div fxLayout="row wrap">
+
+      <div class="w-100 px-1" fxFlex="100">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Page Name</mat-label>
+          <input matInput formControlName="name" required>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="w-100 px-1 check-option" fxFlex="100" >
+        <mat-checkbox formControlName="isHtml" (change)="onCheckChange($event)">Want to paste HTML?</mat-checkbox>
+      </div>
+
+      <mat-form-field *ngIf="dataForm.value.isHtml" appearance="outline" class="w-100 px-1" fxFlex="100">
+        <mat-label>Paste HTML Code</mat-label>
+        <textarea
+          (ngModelChange)="onChangeBaseHtml($event)"
+          formControlName="htmlBase"
+                  matInput
+                  [rows]="6">
+        </textarea>
+      </mat-form-field>
+
+      <div class="html-view" fxFlex="100" *ngIf="dataForm.value.isHtml">
+        <div class="description" [innerHTML]="dataForm.value.description | safeHtmlCustom"></div>
+      </div>
+
+      <div fxFlex="100" class="px-1" *ngIf="!dataForm.value.isHtml">
+        <quill-editor #editor
+                      [modules]="modules"
+                      [sanitize]="true"
+                      classes="additional"
+                      formControlName="description"></quill-editor>
+      </div>
+
+
+
+      <div fxFlex="100" class="w-100 submit-action"
+           [style.margin-top]="!dataForm.value.isHtml ? '100px' : '10px'">
+        <button mat-raised-button color="primary" type="submit">
+          <mat-icon>check</mat-icon>
+          {{'Save Page' | uppercase}}
+        </button>
+      </div>
+
+    </div>
+
+  </form>
+</div>
+
+
+
