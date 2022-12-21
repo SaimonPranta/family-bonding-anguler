@@ -1,0 +1,344 @@
+<div class="analysis-wraper">
+    <div class="graphs-grid">
+        <div>
+            <div class="summary">
+                <div>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                    <p>COST</p>
+                </div>
+                <div>
+                    <span>Last 30 days, daily @</span>
+                </div>
+
+                <div class="sub-summary">
+                    <p>$162.82</p>
+                    <span>.123/preiod</span>
+                </div>
+            </div>
+            <apx-chart [series]="series" [chart]="chart" [dataLabels]="dataLabels" [plotOptions]="plotOptions"
+                [yaxis]="yaxis" [xaxis]="xaxis" [fill]="fill" [title]="title" [grid]="grid">
+            </apx-chart>
+        </div>
+        <div>
+            <div class="summary">
+                <div>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                    <p>IMPRESSIONS</p>
+                </div>
+                <div>
+                    <span>Last 30 days, daily @</span>
+                </div>
+
+                <div class="sub-summary">
+                    <p>$162.82</p>
+                    <span>.123/preiod</span>
+                </div>
+            </div>
+            <apx-chart [series]="seriesTwo" [chart]="chartTwo" [xaxis]="xaxisTwo" [stroke]="strokeTwo"
+                [tooltip]="tooltipTwo" [dataLabels]="dataLabelsTwo"></apx-chart>
+        </div>
+        <div>
+            <div class="summary">
+                <div>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                    <p>ACTIONS</p>
+                </div>
+                <div>
+                    <span>Last 30 days, daily @</span>
+                </div>
+
+                <div class="sub-summary">
+                    <p>$162.82</p>
+                    <span>.123/preiod</span>
+                </div>
+            </div>
+            <apx-chart [series]="seriesTwo" [chart]="chartTwo" [xaxis]="xaxisTwo" [stroke]="strokeTwo"
+                [tooltip]="tooltipTwo" [dataLabels]="dataLabelsTwo"></apx-chart>
+        </div>
+        <div>
+            <div class="summary">
+                <div>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                    <p>COST PER ACTION</p>
+                </div>
+                <div>
+                    <span>Last 30 days, daily @</span>
+                </div>
+
+                <div class="sub-summary">
+                    <p>$162.82</p>
+                    <span>.123/preiod</span>
+                </div>
+            </div>
+            <apx-chart [series]="seriesTwo" [chart]="chartTwo" [xaxis]="xaxisTwo" [stroke]="strokeTwo"
+                [tooltip]="tooltipTwo" [dataLabels]="dataLabelsTwo"></apx-chart>
+        </div>
+        <div>
+            <div class="summary">
+                <div>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                    <p>REACH</p>
+                </div>
+                <div>
+                    <span>Last 30 days, daily @</span>
+                </div>
+
+                <div class="sub-summary">
+                    <p>$162.82</p>
+                    <span>.123/preiod</span>
+                </div>
+            </div>
+            <apx-chart [series]="seriesTwo" [chart]="chartTwo" [xaxis]="xaxisTwo" [stroke]="strokeTwo"
+                [tooltip]="tooltipTwo" [dataLabels]="dataLabelsTwo"></apx-chart>
+        </div>
+        <div>
+            <div class="summary">
+                <div>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                    <p>COST PER MILLE</p>
+                </div>
+                <div>
+                    <span>Last 30 days, daily @</span>
+                </div>
+
+                <div class="sub-summary">
+                    <p>$162.82</p>
+                    <span>.123/preiod</span>
+                </div>
+            </div>
+            <apx-chart [series]="seriesTwo" [chart]="chartTwo" [xaxis]="xaxisTwo" [stroke]="strokeTwo"
+                [tooltip]="tooltipTwo" [dataLabels]="dataLabelsTwo"></apx-chart>
+        </div>
+        <div>
+            <div class="summary">
+                <div>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                    <p>CLICK-THROUGH RATE</p>
+                </div>
+                <div>
+                    <span>Last 30 days, daily @</span>
+                </div>
+
+                <div class="sub-summary">
+                    <p>$162.82</p>
+                    <span>.123/preiod</span>
+                </div>
+            </div>
+            <apx-chart [series]="seriesTwo" [chart]="chartTwo" [xaxis]="xaxisTwo" [stroke]="strokeTwo"
+                [tooltip]="tooltipTwo" [dataLabels]="dataLabelsTwo"></apx-chart>
+        </div>
+        <div>
+            <div class="summary">
+                <div>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                    <p>COST PER CLICK</p>
+                </div>
+                <div>
+                    <span>Last 30 days, daily @</span>
+                </div>
+
+                <div class="sub-summary">
+                    <p>$162.82</p>
+                    <span>.123/preiod</span>
+                </div>
+            </div>
+            <apx-chart [series]="seriesTwo" [chart]="chartTwo" [xaxis]="xaxisTwo" [stroke]="strokeTwo"
+                [tooltip]="tooltipTwo" [dataLabels]="dataLabelsTwo"></apx-chart>
+        </div>
+    </div>
+    <div class="">
+        <div class="summary">
+            <div>
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nLWWPWhUQRDHV9/MuxwiWFgJooUIfoFgk0a0iIVCLAQRQVIIIhYWghKwOSs1mOTNvLNQEQQLBbERPwoFPxuFCDaKHygWgogiSpDcmzlZmTV3Fy/h7nK+Gxh4y+7Ob3Z39v/WuTztvMeIdAewXug761fkF7jkFwLLFiQ9hyRfkOQ+sL6LUh3479g4nq1D1hNA+gFIXwLLcLHsl4U+lttdQ+KksiYEZn1tge07LldWz0qgHQRJU2SdaHYgfWNZI+lJLGcbWq6yGYKUrY+purvmwPoek+oeZNn0j5NMujFf7GTFsyEsN5H1EbBcM0eS73NliiQ/uoeQ3IpItzUG6EQeEAjbK8et+noHSeWg7RAm2YGeQaJUB+JUdwHL1Z5B4kR3Ast1SOVYgADrRbtM0/4pDwiSTFpcx77gTGuQ9HTD5XPu1dVswHIDWRRJfoZyNmf5jSwZktxBqu5zI36xa2EdyYqBolS31yeRPgOW/ph1EEguI8m3cL+S6pA74xd1BUHWESA5Uoda4LS6tz5gzBdNHf5eZPlq/ZaASX3nkKQ6BKSXZqxsGFlPzTl41C8FlkNI+jicJ2sZSF+0hRSSqZVA8nEGpB9Zn7ac5JzrG/XLgeUosj6JubK23XhnQlkYm1oVGiUPVgAu8Utcnoas40F7alCSK8jZ/nwhSbYRWN867xdY26oNSR+6vA1Yn9cPsOTBzqndD2veNl2mDxpQORwEL1cLLxF9ZXIdVJV1EEl+2SMiV06U6FZkuYsk92oOqWyeT5A/4OrAMcrbCG4AAAAASUVORK5CYII=">
+                <p>CAMPAGINS PERFORMANCE</p>
+            </div>
+            <div>
+                <span>Last 30 days @</span>
+            </div>
+
+        </div>
+        <div class="analysis-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>Discription </p>
+                        </td>
+                        <td>
+                            <p>6,108 <span>.6,108</span></p>
+                        </td>
+                        <td>
+                            <p>$19.51 <span>.19</span></p>
+                        </td>
+                        <td>
+                            <p>6,108 <span>.6,108</span></p>
+                        </td>
+                        <td>
+                            <p>$3.19 <span>.3.19</span></p>
+                        </td>
+                        <td>
+                            <p>0 <span>.0</span></p>
+                        </td>
+                        <td>
+                            <p>$0.3364 <span>.0.2264</span></p>
+                        </td>
+                        <td>
+                            <p>0.9496 <span>.09496</span></p>
+                        </td>
+                        <td>
+                            <p>4,119 <span>.4,119</span></p>
+                        </td>
+                        <td>
+                            <p>$0.0047 <span>.0.0047</span></p>
+                        </td>
+                        <td>
+                            <p>0 <span>.0</span></p>
+                        </td>
+                        <td>
+                            <p>$0.00 <span>.0</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Discription </p>
+                        </td>
+                        <td>
+                            <p>6,108 <span>.6,108</span></p>
+                        </td>
+                        <td>
+                            <p>$19.51 <span>.19</span></p>
+                        </td>
+                        <td>
+                            <p>6,108 <span>.6,108</span></p>
+                        </td>
+                        <td>
+                            <p>$3.19 <span>.3.19</span></p>
+                        </td>
+                        <td>
+                            <p>0 <span>.0</span></p>
+                        </td>
+                        <td>
+                            <p>$0.3364 <span>.0.2264</span></p>
+                        </td>
+                        <td>
+                            <p>0.9496 <span>.09496</span></p>
+                        </td>
+                        <td>
+                            <p>4,119 <span>.4,119</span></p>
+                        </td>
+                        <td>
+                            <p>$0.0047 <span>.0.0047</span></p>
+                        </td>
+                        <td>
+                            <p>0 <span>.0</span></p>
+                        </td>
+                        <td>
+                            <p>$0.00 <span>.0</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Discription </p>
+                        </td>
+                        <td>
+                            <p>6,108 <span>.6,108</span></p>
+                        </td>
+                        <td>
+                            <p>$19.51 <span>.19</span></p>
+                        </td>
+                        <td>
+                            <p>6,108 <span>.6,108</span></p>
+                        </td>
+                        <td>
+                            <p>$3.19 <span>.3.19</span></p>
+                        </td>
+                        <td>
+                            <p>0 <span>.0</span></p>
+                        </td>
+                        <td>
+                            <p>$0.3364 <span>.0.2264</span></p>
+                        </td>
+                        <td>
+                            <p>0.9496 <span>.09496</span></p>
+                        </td>
+                        <td>
+                            <p>4,119 <span>.4,119</span></p>
+                        </td>
+                        <td>
+                            <p>$0.0047 <span>.0.0047</span></p>
+                        </td>
+                        <td>
+                            <p>0 <span>.0</span></p>
+                        </td>
+                        <td>
+                            <p>$0.00 <span>.0</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Discription </p>
+                        </td>
+                        <td>
+                            <p>6,108 <span>.6,108</span></p>
+                        </td>
+                        <td>
+                            <p>$19.51 <span>.19</span></p>
+                        </td>
+                        <td>
+                            <p>6,108 <span>.6,108</span></p>
+                        </td>
+                        <td>
+                            <p>$3.19 <span>.3.19</span></p>
+                        </td>
+                        <td>
+                            <p>0 <span>.0</span></p>
+                        </td>
+                        <td>
+                            <p>$0.3364 <span>.0.2264</span></p>
+                        </td>
+                        <td>
+                            <p>0.9496 <span>.09496</span></p>
+                        </td>
+                        <td>
+                            <p>4,119 <span>.4,119</span></p>
+                        </td>
+                        <td>
+                            <p>$0.0047 <span>.0.0047</span></p>
+                        </td>
+                        <td>
+                            <p>0 <span>.0</span></p>
+                        </td>
+                        <td>
+                            <p>$0.00 <span>.0</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

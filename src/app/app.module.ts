@@ -14,7 +14,6 @@ import {AuthAdminInterceptor} from "./auth-interceptor/auth-admin.interceptor";
 import {ErrorHandleInterceptor} from './error-handler/error-handle.interceptor';
 import { MaterialModule } from './material/material.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,

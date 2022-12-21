@@ -1,3 +1,5 @@
+import { SpAdAnalysisOneModule } from './sp-add-analysis-one/sp-add-analysis-one.module';
+import { SpAdAnalysisOneComponent } from './sp-add-analysis-one/sp-add-analysis-one.component';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PagesComponent} from "./pages.component";
@@ -108,6 +110,12 @@ const routes: Routes = [
       {
         path: 'fm-to-do-list',
         loadChildren: () => import('./fm-to-do-list/fm-to-do-list.module').then(m => m.FmToDoListModule),
+        data: {preload: true, delay: false}
+      },
+      
+      {
+        path: 'sp-add-analysis-one',
+        loadChildren: () => import('./sp-add-analysis-one/sp-add-analysis-one.module').then(m => m.SpAdAnalysisOneModule),
         data: {preload: true, delay: false}
       },
       {
